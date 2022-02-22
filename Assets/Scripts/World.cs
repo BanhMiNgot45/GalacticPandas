@@ -11,7 +11,8 @@ public class World : MonoBehaviour
     public GameObject alienPrefab;
 
     private List<GameObject> alien_wave = new List<GameObject>();
-    private GameObject[] pandas = new GameObject[3];
+    private Panda_Fight[] pandas = new Panda_Fight[3];
+    private Panda_Fight current_panda;
     private GameObject[] aliens = new GameObject[3];
 
 
@@ -61,9 +62,11 @@ public class World : MonoBehaviour
 
         //AddPandas
         //Add Entities
-        pandas[0] = Instantiate(pandaPrefab);
-        pandas[1] = Instantiate(pandaPrefab);
-        pandas[2] = Instantiate(pandaPrefab);
+        Debug.Log("Adding Entities...");
+        pandas[0] = (Panda_Fight)Instantiate(pandaPrefab).GetComponent(typeof(Panda_Fight));
+        //pandas[1] = Instantiate(pandaPrefab);
+        //pandas[2] = Instantiate(pandaPrefab);
+        current_panda = pandas[0];
         //For Each Panda
         //Panda Move to position
         //NextWave
@@ -87,6 +90,7 @@ public class World : MonoBehaviour
 		Debug.Log("Setting up Pandas...");
         //Get current Panda
         //If Panda is ready
+        if(current_panda.ready)
             //Next Panda
             //Return
         

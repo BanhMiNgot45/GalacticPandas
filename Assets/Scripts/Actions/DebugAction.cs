@@ -5,7 +5,7 @@ using UnityEngine;
 public class DebugAction : Action
 {
     private string message;
-    public DebugAction(GameObject s, GameObject[] t,string _message):base(s,t)
+    public DebugAction(GameObject s, GameObject[] t,string _message,Battle b):base(s,t,b)
     {
         message = _message;
     }
@@ -15,7 +15,7 @@ public class DebugAction : Action
         return null;
     }
 
-    public override Object run()
+    public override Object _run()
     {
         Debug.Log(message);
         kill();

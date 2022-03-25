@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Panda : MonoBehaviour
 {
+
+    public Battle battle;
     private Move[] Moveset;
     public Action selectedAction;
     private bool ready = false;
@@ -47,7 +49,13 @@ public class Panda : MonoBehaviour
 
     public void UseMove(int i)
     {
-        setAction(new DebugAction(this.gameObject,null,"Using move " + i));
+        List<Action> things = new List<Action>();
+        things.Add(new LerpAction(this.gameObject, null, battle, new Vector3(5, 2, 0)));
+        things.Add(new TimerAction(this.gameObject, null, battle, 100));
+        things.Add(new LerpAction(this.gameObject, null, battle, new Vector3(0, 0, 0)));
+
+
+        setAction(new SeriesAction(null,null,things,battle));
         ready = true;
 
 

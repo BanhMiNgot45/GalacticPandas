@@ -6,12 +6,14 @@ public abstract class Action
 {
     protected GameObject source;
     protected GameObject[] targets;
+    protected Battle battle;
     private bool dead = false;
 
-    protected Action(GameObject s, GameObject[] t)
+    protected Action(GameObject s, GameObject[] t,Battle b)
     {
         source = s;
         targets = t;
+        battle = b;
     }
 
     public bool IsDead()
@@ -20,8 +22,16 @@ public abstract class Action
     }
 
     public abstract Object init();
-    public abstract Object run();
+    public abstract Object _run();
     public abstract Object cleanup();
+
+    public  Object run() {
+
+        if (!IsDead())
+            return _run();
+        return null;
+    
+    }
 
     public void kill()
     {

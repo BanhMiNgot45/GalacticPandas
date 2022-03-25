@@ -5,7 +5,7 @@ using UnityEngine;
 public class EndTurnAction : Action
 {
     private string message;
-    public EndTurnAction(GameObject s, GameObject[] t):base(s,t)
+    public EndTurnAction(GameObject s, GameObject[] t,Battle b):base(s,t,b)
     {
     }
 
@@ -14,9 +14,9 @@ public class EndTurnAction : Action
         return null;
     }
 
-    public override Object run()
+    public override Object _run()
     {
-        Debug.Log("Changing Turns");
+        battle.changeTurns();
         kill();
         return null;
     }

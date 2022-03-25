@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,12 +8,14 @@ public class UI : MonoBehaviour
 
     public Player player;
     public AI ai;
-    public World world;
+    public Battle battle;
 
+    public Canvas canvas;
 
     public Vector3 target;
 
-    GameObject parent;
+
+    public GameObject parent;
     private UI parent_ui;
     public bool trigger = false;
     public int delay_to_reset = 10;
@@ -38,8 +41,7 @@ public class UI : MonoBehaviour
     void Start()
     {
 
-
-        parent = this.transform.parent.gameObject;
+        //parent = this.transform.parent.gameObject;
         parent_ui = (UI)parent.GetComponent(typeof(UI));
         origin = parent.transform.position;
 
@@ -54,18 +56,24 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (!battle.ActionReady()&&battle.isPlayersTurn())
+            canvas.scaleFactor = 1;
+        else
+            canvas.scaleFactor = 0;
+
         origin = parent.transform.position;
         if (parent_ui != null)
         {
-            if (parent_ui.trigger)
+            if (parent_ui.trigger || trigger)
             {
                 _delay_to_reset = delay_to_reset;
             }
             else
             {
-                trigger = false;
                 if (_delay_to_reset > 0)
                     _delay_to_reset--;
+
             }
 
             if (_delay_to_reset > 0)
@@ -73,6 +81,7 @@ public class UI : MonoBehaviour
             else
                 lerp(origin);
         }
+
     }
 
 
@@ -89,7 +98,7 @@ public class UI : MonoBehaviour
     public void choose()
     {
         Debug.Log("Choosing");
-        if (world == null)
+        if (battle == null)
         {
             Debug.Log("There is no world set! Returning...");
             return;
@@ -113,5 +122,9 @@ public class UI : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, target, 0.1f);
     }
 
+    public void update()
+    {
+        
+    }
 
 }

@@ -5,8 +5,9 @@ using UnityEngine;
 public class Battle : MonoBehaviour
 {
 
-    bool players_turn = true;
-    private List<Action> actions = new List<Action>();
+    public bool players_turn = true;
+    private Action action =null;
+    public UI ui;
 
     // Start is called before the first frame update
     void Start()
@@ -14,38 +15,39 @@ public class Battle : MonoBehaviour
         
     }
 
+    public bool ActionReady() { return action != null; }
     // Update is called once per frame
     void Update()
     {
-        if (actions.Count > 0) { 
+        if (action !=null) {
+
+
+            action.run();
+
+            if (action.IsDead())
+                action = null;
+
         
-            foreach (Action a in actions)
-            {
-
-                a.run();
-
-
-            }
-
-            for (int i = 0; i < actions.Count; i++)
-                if (actions[i].IsDead())
-                    actions.RemoveAt(i);
 
 
         }
         
     }
 
-    public void setActions(List<Action> list) {
+    public bool isPlayersTurn() { return players_turn; }
 
-        actions.AddRange(list);
+    public void changeTurns() {
+
+        Debug.Log("Changing Turns");
+        players_turn = !players_turn;
+
     
     }
 
-    public void setActions(Action a)
-    {
+    public void setAction(Action a) {
 
-        actions.Add(a);
-
+        action = a;
+    
     }
+
 }

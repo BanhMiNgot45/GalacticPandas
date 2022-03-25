@@ -8,13 +8,13 @@ public abstract class ImpulseAction : Action
 private GameObject source;
 private GameObject[] targets;
 
-public ImpulseAction(GameObject s, GameObject[] t) : base(s, t)
+public ImpulseAction(GameObject s, GameObject[] t,Battle b) : base(s, t, b)
 {
 }
 
 
 
-public override Object run()
+public override Object _run()
 {
     if (trigger())
     {

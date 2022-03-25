@@ -61,6 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab8e3b7307bfa94fb97f44ccb9d6199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players_turn: 1
+  ui: {fileID: 0}
 --- !u!1001 &239573893863803410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77,6 +79,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6043816327103248485}
     - target: {fileID: 6531377898509020217, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
+      propertyPath: battle
+      value: 
+      objectReference: {fileID: 7562841482320701867}
+    - target: {fileID: 6531377898509020217, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 6482719146521471409}
+    - target: {fileID: 6531377898509020217, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 5072342406570788606}
@@ -88,6 +98,14 @@ PrefabInstance:
       propertyPath: world
       value: 
       objectReference: {fileID: 6043816327103248485}
+    - target: {fileID: 6531377898857753057, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
+      propertyPath: battle
+      value: 
+      objectReference: {fileID: 7562841482320701867}
+    - target: {fileID: 6531377898857753057, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 6482719146521471409}
     - target: {fileID: 6531377898857753057, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
       propertyPath: choice
       value: 4
@@ -104,6 +122,14 @@ PrefabInstance:
       propertyPath: world
       value: 
       objectReference: {fileID: 6043816327103248485}
+    - target: {fileID: 6531377898916933064, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
+      propertyPath: battle
+      value: 
+      objectReference: {fileID: 7562841482320701867}
+    - target: {fileID: 6531377898916933064, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 6482719146521471409}
     - target: {fileID: 6531377898916933064, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
       propertyPath: player
       value: 
@@ -161,6 +187,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6043816327103248485}
     - target: {fileID: 6531377899380927543, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
+      propertyPath: battle
+      value: 
+      objectReference: {fileID: 7562841482320701867}
+    - target: {fileID: 6531377899380927543, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 6482719146521471409}
+    - target: {fileID: 6531377899380927543, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
       propertyPath: choice
       value: 1
       objectReference: {fileID: 0}
@@ -176,6 +210,14 @@ PrefabInstance:
       propertyPath: world
       value: 
       objectReference: {fileID: 6043816327103248485}
+    - target: {fileID: 6531377900010951586, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
+      propertyPath: battle
+      value: 
+      objectReference: {fileID: 7562841482320701867}
+    - target: {fileID: 6531377900010951586, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 6482719146521471409}
     - target: {fileID: 6531377900010951586, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
       propertyPath: choice
       value: 2
@@ -268,6 +310,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6531377900048655266, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
+      propertyPath: m_ScaleFactor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6531377900048655267, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6531377900048655268, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
       propertyPath: m_Name
       value: UI
@@ -281,6 +331,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6043816327103248485}
     - target: {fileID: 6531377900244980751, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
+      propertyPath: battle
+      value: 
+      objectReference: {fileID: 7562841482320701867}
+    - target: {fileID: 6531377900244980751, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 6482719146521471409}
+    - target: {fileID: 6531377900244980751, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 5072342406570788606}
@@ -292,6 +350,14 @@ PrefabInstance:
       propertyPath: world
       value: 
       objectReference: {fileID: 6043816327103248485}
+    - target: {fileID: 6531377900337291831, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
+      propertyPath: battle
+      value: 
+      objectReference: {fileID: 7562841482320701867}
+    - target: {fileID: 6531377900337291831, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 6482719146521471409}
     - target: {fileID: 6531377900337291831, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
       propertyPath: choice
       value: 3
@@ -305,6 +371,11 @@ PrefabInstance:
 --- !u!224 &6482719146521471410 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6531377900048655264, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
+  m_PrefabInstance: {fileID: 239573893863803410}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &6482719146521471409 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 6531377900048655267, guid: 0bf14d0336b07b4489f33623a99948e5, type: 3}
   m_PrefabInstance: {fileID: 239573893863803410}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6482719147811825626 stripped
@@ -450,6 +521,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6942610550712708475, guid: 53d3c3f18ad80d54687851e6dc5c34ae, type: 3}
+      propertyPath: battle
+      value: 
+      objectReference: {fileID: 7562841482320701867}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53d3c3f18ad80d54687851e6dc5c34ae, type: 3}
 --- !u!4 &5650795381740588358 stripped

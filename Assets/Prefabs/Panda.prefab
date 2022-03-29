@@ -254,3 +254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17fb69c4cf92ec45a96ece0c6f36c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battle: {fileID: 0}
+  panda_name: NULL
+  stand: {fileID: 1017017268}

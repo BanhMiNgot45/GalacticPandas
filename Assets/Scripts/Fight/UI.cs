@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
@@ -12,11 +13,14 @@ public class UI : MonoBehaviour
 
     public Canvas canvas;
 
+    public GameObject text;
+
     public Vector3 target;
 
 
     public GameObject parent;
     private UI parent_ui;
+    public UI[] neighbors;
     public bool trigger = false;
     public int delay_to_reset = 10;
     private int _delay_to_reset = 0;
@@ -41,15 +45,9 @@ public class UI : MonoBehaviour
     void Start()
     {
 
-        //parent = this.transform.parent.gameObject;
         parent_ui = (UI)parent.GetComponent(typeof(UI));
         origin = parent.transform.position;
 
-        if (parent_ui != null) {
-            //world = parent_ui.world;
-//ai = parent_ui.ai;
-            //player = parent_ui.player;
-        }
 
     }
 
@@ -65,6 +63,13 @@ public class UI : MonoBehaviour
         origin = parent.transform.position;
         if (parent_ui != null)
         {
+            if (trigger) {
+                parent_ui._delay_to_reset = parent_ui.delay_to_reset;
+                foreach(UI u in neighbors) {
+
+                    u._delay_to_reset = u.delay_to_reset;
+                }
+            }
             if (parent_ui.trigger || trigger)
             {
                 _delay_to_reset = delay_to_reset;
@@ -84,7 +89,6 @@ public class UI : MonoBehaviour
 
     }
 
-
     public void trigger_on(){
         trigger = true;
     }
@@ -103,15 +107,33 @@ public class UI : MonoBehaviour
             Debug.Log("There is no world set! Returning...");
             return;
         }
-    
-        if(section == 1)
+
+        _delay_to_reset = 0;
+        parent_ui._delay_to_reset = 0;
+        foreach (UI u in neighbors)
+            u._delay_to_reset = 0;
+
+        if (section == 1)
             player.GetActivePanda().UseMove(choice);
         else if(section ==2)
             player.GetActivePanda().UseItem(choice);
+        ChangePanda();
 
     }
 
+    public void ChangePanda() {
 
+        player.IncrementActivePandaIndex(1);
+        LoadPandaDetails();
+
+    }
+
+    private void LoadPandaDetails()
+    {
+        Debug.Log("Changing name...");
+        //Debug.Log(this.gameObject.GetComponent<Image>().);
+
+    }
 
     private float setLerpTime = 60;
 

@@ -8,6 +8,7 @@ public class Battle : MonoBehaviour
     public bool players_turn = true;
     private Action action =null;
     public UI ui;
+    public Dialogue dialogue;
 
     // Start is called before the first frame update
     void Start()

@@ -397,23 +397,6 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
---- !u!1 &1474589959 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6993189157706115089, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
-  m_PrefabInstance: {fileID: 6043816328090253857}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1474589961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1474589959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5702e1dabd648974587c5e92ade5fd94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1617781667
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +800,26 @@ PrefabInstance:
     - target: {fileID: 6043816327103248483, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482719146718583216, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
+      propertyPath: delay_to_reset
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482719146777077797, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
+      propertyPath: delay_to_reset
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482719147197883941, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
+      propertyPath: delay_to_reset
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482719147719746547, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
+      propertyPath: delay_to_reset
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482719147811825626, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
+      propertyPath: delay_to_reset
+      value: 70
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4319130109800253781, guid: dfa06933268fc60499ff5da1455d158f, type: 3}

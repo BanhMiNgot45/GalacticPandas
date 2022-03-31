@@ -53,13 +53,13 @@ public class Panda : MonoBehaviour
     public void UseMove(int i)
     {
         List<Action> things = new List<Action>();
-        
-        things.Add(new ChangeCameraAction(GameObject.Find("Main Camera"),new GameObject[] {stand},battle));
-        things.Add(new OpenDialogueAction(null, null, "Hello World",battle));
+        things.Add(new ChangeCameraAction(GameObject.Find("Main Camera"), new GameObject[] { stand }, battle));
+        things.Add(new LerpAction(GameObject.Find("Main Camera"), null, battle, stand.transform.GetChild(0).position));
+        //things.Add(new OpenDialogueAction(null, null, "Hello World",battle));
         things.Add(new LerpAction(this.gameObject, null, battle, new Vector3(5, 2, 0)));
         things.Add(new TimerAction(this.gameObject, null, battle, 100));
         things.Add(new LerpAction(this.gameObject, null, battle, new Vector3(0, 0, 0)));
-
+        
 
         setAction(new SeriesAction(null,null,things,battle));
         ready = true;

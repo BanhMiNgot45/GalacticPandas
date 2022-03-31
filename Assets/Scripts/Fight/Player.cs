@@ -35,7 +35,8 @@ public class Player : MonoBehaviour
                 List<Action> things = new List<Action>();
                 foreach (Panda p in panda)
                 {
-                    things.Add(p.GetSelectedAction());
+                    things.Add(p.GetSelectedAction()); 
+                    things.Add(new ChangeCameraAction(GameObject.Find("Main Camera"), new GameObject[] { battle.stand }, battle));
                     things.Add(new EndTurnAction(null, null, battle));
                     p.reset();
                 }

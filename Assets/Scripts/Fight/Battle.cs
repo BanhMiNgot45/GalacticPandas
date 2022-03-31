@@ -9,6 +9,7 @@ public class Battle : MonoBehaviour
     private Action action =null;
     public UI ui;
     public Dialogue dialogue;
+    public GameObject stand;
 
     // Start is called before the first frame update
     void Start()

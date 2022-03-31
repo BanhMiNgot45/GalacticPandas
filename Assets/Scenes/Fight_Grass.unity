@@ -397,6 +397,24 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
+--- !u!1 &1199840000 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6043816327103248480, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
+  m_PrefabInstance: {fileID: 6043816328090253857}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1199840004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199840000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff16054d35736b14581262445181180d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  main_camera: {fileID: 1617781669}
 --- !u!1 &1617781667
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,6 +839,10 @@ PrefabInstance:
       propertyPath: delay_to_reset
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 7562841482320701867, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
+      propertyPath: stand
+      value: 
+      objectReference: {fileID: 1711894212}
     m_RemovedComponents:
     - {fileID: 4319130109800253781, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dfa06933268fc60499ff5da1455d158f, type: 3}

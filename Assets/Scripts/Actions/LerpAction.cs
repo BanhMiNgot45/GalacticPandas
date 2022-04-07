@@ -5,9 +5,10 @@ using UnityEngine;
 public class LerpAction : Action
 {
     private Vector3 location;
-    public LerpAction(GameObject s, GameObject[] t, Battle b,Vector3 l) : base(s, t, b)
+
+    public LerpAction(GameObject s, GameObject[] t, Battle b, Vector3 l) : base(s, t, b)
     {
-        location = l;
+        location = new Vector3(l.x, l.y, l.z);
     }
 
     public override Object init()
@@ -18,15 +19,27 @@ public class LerpAction : Action
     public override Object _run()
     {
 
-        if (source.transform.position==location) {
+        Debug.Log(location);
+        Debug.Log(source.transform.position);
+        if (source.transform.position == location)
+        {
             kill();
-        }else
+        }
+        else
             lerp();
+
+        if (Vector3.Distance(source.transform.position, location) <= 0.5f)
+        {
+            source.transform.position = location;
+            kill();
+        }
 
 
         return null;
     }
-    public override Object cleanup()
+
+
+public override Object cleanup()
     {
         return null;
     }

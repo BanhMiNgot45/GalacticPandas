@@ -50,18 +50,28 @@ public class Panda : MonoBehaviour
     {
     }
 
+    public void Log(string m)
+    {
+        Debug.Log(m);
+
+
+    }
+
     public void UseMove(int i)
     {
         List<Action> things = new List<Action>();
-        things.Add(new ChangeCameraAction(GameObject.Find("Main Camera"), new GameObject[] { stand }, battle));
-        things.Add(new LerpAction(GameObject.Find("Main Camera"), null, battle, stand.transform.GetChild(0).position));
-        //things.Add(new OpenDialogueAction(null, null, "Hello World",battle));
-        things.Add(new LerpAction(this.gameObject, null, battle, new Vector3(5, 2, 0)));
-        things.Add(new TimerAction(this.gameObject, null, battle, 100));
-        things.Add(new LerpAction(this.gameObject, null, battle, new Vector3(0, 0, 0)));
+        //things.Add(new ChangeCameraAction(GameObject.Find("Main Camera"), new GameObject[] { stand }, battle));
+        //things.Add(new LerpAction(GameObject.Find("Main Camera"), null, battle, stand.transform.GetChild(0).position));
+        //things.Add(new LerpRotationAction(GameObject.Find("Main Camera"), null, battle, new Vector3(stand.transform.GetChild(0).rotation.x, stand.transform.GetChild(0).rotation.y, stand.transform.GetChild(0).rotation.z)));
+        things.Add(new OpenDialogueAction(null, null, "Hello World",battle));
+        things.Add(new SeriesAction(null,null,new Action[]{
+            new LerpAction(this.gameObject, null, battle, new Vector3(5, 2, 0)),
+            new TimerAction(this.gameObject, null, battle, 100),
+            new LerpAction(this.gameObject, null, battle, new Vector3(0, 0, 0)) 
+        },battle));
         
 
-        setAction(new SeriesAction(null,null,things,battle));
+        setAction(new ParallelAction(null,null,things,battle));
         ready = true;
 
 

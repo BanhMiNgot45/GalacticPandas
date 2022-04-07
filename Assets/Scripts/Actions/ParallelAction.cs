@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeriesAction : Action
+public class ParallelAction : Action
 {
     private List<Action> actions;
-    public SeriesAction(GameObject s, GameObject[] t, List<Action> a, Battle b) : base(s, t, b)
+    public ParallelAction(GameObject s, GameObject[] t, List<Action> a, Battle b) : base(s, t, b)
     {
         actions = a;
     }
 
-    public SeriesAction(GameObject s, GameObject[] t,Action[] aa, Battle b) : base(s, t, b)
+    public ParallelAction(GameObject s, GameObject[] t, Action[] aa, Battle b) : base(s, t, b)
     {
         actions = new List<Action>();
         foreach (Action a in aa)
-        
+
             actions.Add(a);
     }
 
@@ -24,21 +24,17 @@ public class SeriesAction : Action
     }
 
 
-    private int index = 0;
 
     public override Object _run()
     {
-        Action a = actions[index];
-
-        if (a.IsDead())
-            index++;
-
-        a.run();
-
-        if (index >= actions.Count)
+        bool dead = true;
+        foreach(Action a in actions){
+            dead &= a.IsDead();
+            if(!a.IsDead())
+            a.run();
+        }
+        if (dead)
             kill();
-
-
 
         return null;
     }

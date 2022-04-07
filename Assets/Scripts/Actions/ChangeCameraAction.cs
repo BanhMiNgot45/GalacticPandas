@@ -19,7 +19,7 @@ public class ChangeCameraAction : Action
     {
 
 
-        source.transform.SetParent(targets[0].transform,true);
+        source.transform.SetParent(targets[0].transform,false);
         kill();
         return null;
     }

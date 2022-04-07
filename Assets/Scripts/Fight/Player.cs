@@ -27,7 +27,8 @@ public class Player : MonoBehaviour
         {
             bool ready = true;
             foreach (Panda p in panda)
-                ready &= p.IsReady();
+                if(p!=null)            
+                    ready &= p.IsReady();
             if (ready)
             {
 
@@ -35,15 +36,19 @@ public class Player : MonoBehaviour
                 List<Action> things = new List<Action>();
                 foreach (Panda p in panda)
                 {
-                    things.Add(p.GetSelectedAction()); 
-                    things.Add(new ChangeCameraAction(GameObject.Find("Main Camera"), new GameObject[] { battle.stand }, battle));
-                    things.Add(new EndTurnAction(null, null, battle));
-                    p.reset();
+                    if (p != null)
+                    {
+                        things.Add(p.GetSelectedAction());
+                        
+                        p.reset();
+                    }
                 }
+                things.Add(new ChangeCameraAction(GameObject.Find("Main Camera"), new GameObject[] { battle.stand }, battle));
+                things.Add(new EndTurnAction(null, null, battle));
                 SeriesAction a = new SeriesAction(null, null, things, battle);
                 battle.setAction(a);
-
             }
+            
         }
     }
 

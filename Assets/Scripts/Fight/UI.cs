@@ -19,7 +19,7 @@ public class UI : MonoBehaviour
 
 
     public GameObject parent;
-    private UI parent_ui;
+    public UI parent_ui;
     public UI[] neighbors;
     public bool trigger = false;
     public int delay_to_reset = 10;
@@ -56,9 +56,14 @@ public class UI : MonoBehaviour
     {
 
         if (!battle.ActionReady()&&battle.isPlayersTurn())
-            canvas.scaleFactor = 1;
+        {
+            gameObject.transform.localScale = new Vector3(1f, 1f, 1);
+
+        }
         else
-            canvas.scaleFactor = 0;
+        {
+            gameObject.transform.localScale = new Vector3(0, 0f, 1);
+        }
 
         origin = parent.transform.position;
         if (parent_ui != null)
@@ -107,23 +112,32 @@ public class UI : MonoBehaviour
             Debug.Log("There is no world set! Returning...");
             return;
         }
+        if(player.GetActivePanda()==null)
+        {
+            Debug.Log("There is no active panda set! Returning...");
+            return;
+        }
 
         _delay_to_reset = 0;
         parent_ui._delay_to_reset = 0;
         foreach (UI u in neighbors)
             u._delay_to_reset = 0;
 
-        if (section == 1)
-            player.GetActivePanda().UseMove(choice);
-        else if(section ==2)
-            player.GetActivePanda().UseItem(choice);
-        ChangePanda();
-
+            if (section == 1)
+                player.GetActivePanda().UseMove(choice);
+            else if (section == 2)
+                player.GetActivePanda().UseItem(choice);
+            ChangePanda();
+        
     }
 
     public void ChangePanda() {
 
         player.IncrementActivePandaIndex(1);
+        if (player.GetActivePanda()==null) {
+            ChangePanda();
+            return;
+        }
         LoadPandaDetails();
 
     }

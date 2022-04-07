@@ -18,7 +18,7 @@ public class LerpRotationAction : Action
     public override Object _run()
     {
 
-        if (source.transform.rotation==location) {
+        if (new Vector3(source.transform.rotation.x, source.transform.rotation.y, source.transform.rotation.z)== location) {
             kill();
         }else
             lerp();
@@ -33,6 +33,8 @@ public class LerpRotationAction : Action
 
     void lerp()
     {
-        source.transform.position = Vector3.Lerp(source.transform.position, location, 0.1f);
+        source.transform.rotation = Quaternion.Lerp(source.transform.rotation, Quaternion.Euler(location), 0.1f);
+        
+
     }
 }

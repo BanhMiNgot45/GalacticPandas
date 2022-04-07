@@ -21,11 +21,21 @@ public abstract class Action
         return dead;
     }
 
+    
+    private bool hasInit = false;
+
     public abstract Object init();
     public abstract Object _run();
     public abstract Object cleanup();
 
-    public  Object run() {
+    public  Object run()
+    {
+
+        if (!hasInit)
+        {
+            hasInit = true;
+            init();
+        }
 
         if (!IsDead())
             return _run();

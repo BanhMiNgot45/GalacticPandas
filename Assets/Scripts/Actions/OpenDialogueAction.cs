@@ -8,19 +8,27 @@ public class OpenDialogueAction: Action
     public OpenDialogueAction(GameObject s, GameObject[] t,string _message,Battle b):base(s,t,b)
     {
         message = _message;
-        battle.dialogue.text = message;
     }
 
     public override Object init()
     {
+        battle.dialogue.text = message;
         return null;
     }
 
     public override Object _run()
     {
-        Debug.Log(message);
-        if(battle.dialogue.text == null)
+        //Debug.Log(message);
+        if (battle.dialogue.text == "")
+        {
+            Debug.Log("Dead");
             kill();
+        }
+        else
+        {
+
+            battle.dialogue.setTMPText(message);
+        }
         
 
         return null;

@@ -9,6 +9,11 @@ public abstract class Action
     protected Battle battle;
     private bool dead = false;
 
+    public void setTargets(GameObject[] t)
+    {
+        targets = t;
+    }
+
     protected Action(GameObject s, GameObject[] t,Battle b)
     {
         source = s;

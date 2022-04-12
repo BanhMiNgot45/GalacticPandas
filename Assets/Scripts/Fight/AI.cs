@@ -11,7 +11,7 @@ public class AI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 1; i++)
         {
             panda[i] = Instantiate(prefab).GetComponent<Panda>();
             panda[i].battle = battle;
@@ -42,9 +42,10 @@ public class AI : MonoBehaviour
                         
                         p.reset();
                     }
-                    things.Add(new ChangeCameraAction(GameObject.Find("Main Camera"), new GameObject[] { battle.stand }, battle));
-                    things.Add(new EndTurnAction(null, null, battle));
                 }
+
+                things.Add(new ChangeCameraAction(GameObject.Find("Main Camera"), new GameObject[] { battle.stand }, battle));
+                things.Add(new EndTurnAction(null, null, battle));
                 SeriesAction a = new SeriesAction(null, null, things, battle);
                 battle.setAction(a);
                 ready = true;

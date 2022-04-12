@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 3; i++ ) { 
+        for (int i = 0; i < 1; i++ ) { 
         panda[i] = Instantiate(prefab).GetComponent<Panda>();
         panda[i].battle = battle;
             panda[i].transform.Translate(new Vector3(i * 10, 0, 0),null);
@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
                 {
                     if (p != null)
                     {
+
                         things.Add(p.GetSelectedAction());
                         
                         p.reset();

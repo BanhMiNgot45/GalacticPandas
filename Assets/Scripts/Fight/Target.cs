@@ -6,6 +6,7 @@ public class Target : MonoBehaviour
 {
 
     public int target;
+    UI source;
 
 
     // Start is called before the first frame update
@@ -22,6 +23,18 @@ public class Target : MonoBehaviour
 
     public void setTarget()
     {
+        Debug.Log(target);
+        source.chooseMoveWithTarget(target);
 
     }
+
+    public void prompt(UI source) {
+
+        this.source = source;
+
+
+    
+    
+    }
+
 }

@@ -55,6 +55,14 @@ public class UI : MonoBehaviour
     void Update()
     {
 
+        if (choosing){
+            promptForTarget(true);
+        }
+        else {
+            promptForTarget(false);
+        }
+
+
         if (!battle.ActionReady()&&battle.isPlayersTurn())
         {
             gameObject.transform.localScale = new Vector3(1f, 1f, 1);
@@ -94,6 +102,18 @@ public class UI : MonoBehaviour
 
     }
 
+    public void chooseMoveWithTarget(int i) {
+
+        if (section == 1)
+            player.GetActivePanda().UseMove(choice);
+        else if (section == 2)
+            player.GetActivePanda().UseItem(choice);
+        ChangePanda();
+        choosing = false;
+
+
+    }
+
     public void trigger_on(){
         trigger = true;
     }
@@ -104,6 +124,8 @@ public class UI : MonoBehaviour
         trigger = !trigger; 
     }
 
+
+    public bool choosing = false;
     public void choose()
     {
         Debug.Log("Choosing");
@@ -112,7 +134,7 @@ public class UI : MonoBehaviour
             Debug.Log("There is no world set! Returning...");
             return;
         }
-        if(player.GetActivePanda()==null)
+        if (player.GetActivePanda() == null)
         {
             Debug.Log("There is no active panda set! Returning...");
             return;
@@ -123,11 +145,8 @@ public class UI : MonoBehaviour
         foreach (UI u in neighbors)
             u._delay_to_reset = 0;
 
-            if (section == 1)
-                player.GetActivePanda().UseMove(choice);
-            else if (section == 2)
-                player.GetActivePanda().UseItem(choice);
-            ChangePanda();
+        choosing = true;
+        
         
     }
 
@@ -161,6 +180,35 @@ public class UI : MonoBehaviour
     public void update()
     {
         
+    }
+
+    public Target[] targetButtons;
+    public int target_val = -1;
+
+    public void setTarget(int i) { target_val = i%6; }
+    public void resetTarget() { target_val = -1; }
+    public void promptForTarget(bool on) {
+
+        if (on)
+        {
+            foreach (Target t in targetButtons)
+            {
+                t.gameObject.transform.localScale = new Vector3(1f, 1f, 1);
+                t.prompt(this);
+            }
+        }
+        else
+        {
+            foreach (Target t in targetButtons)
+            {
+                t.gameObject.transform.localScale = new Vector3(0f, 1f, 1);
+                t.prompt(null);
+            }
+        }
+        
+
+
+
     }
 
 }

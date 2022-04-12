@@ -34,7 +34,7 @@ public class LerpRotationAction : Action
     void lerp()
     {
         source.transform.rotation = Quaternion.Lerp(source.transform.rotation, Quaternion.Euler(location), 0.1f);
-        
+      
 
     }
 }

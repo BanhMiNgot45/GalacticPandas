@@ -26,7 +26,6 @@ public class OpenDialogueAction: Action
         }
         else
         {
-
             battle.dialogue.setTMPText(message);
         }
         

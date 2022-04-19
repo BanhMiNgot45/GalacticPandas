@@ -10,6 +10,8 @@ public class Battle : MonoBehaviour
     public UI ui;
     public Dialogue dialogue;
     public GameObject stand;
+    public Player player;
+    public AI ai;
 
     // Start is called before the first frame update
     void Start()
@@ -51,5 +53,8 @@ public class Battle : MonoBehaviour
         action = a;
     
     }
+
+
+
 
 }

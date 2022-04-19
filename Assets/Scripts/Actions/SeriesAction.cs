@@ -18,7 +18,7 @@ public class SeriesAction : Action
             actions.Add(a);
     }
 
-    public override Object init()
+    public override System.Object init()
     {
         return null;
     }
@@ -26,14 +26,26 @@ public class SeriesAction : Action
 
     private int index = 0;
 
-    public override Object _run()
+    public override System.Object _run()
     {
         Action a = actions[index];
 
         if (a.IsDead())
-            index++;
+        {
+            System.Object re = a.cleanUp();
+            if (re is Action)
+            {
+                actions[index] = (Action)re;
 
-        a.run();
+            }
+            else
+            {
+                index++;
+            }
+        }
+    
+
+    a.run();
 
         if (index >= actions.Count)
             kill();
@@ -42,7 +54,7 @@ public class SeriesAction : Action
 
         return null;
     }
-    public override Object cleanup()
+    public override System.Object cleanUp()
     {
         return null;
     }

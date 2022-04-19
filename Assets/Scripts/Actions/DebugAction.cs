@@ -10,18 +10,18 @@ public class DebugAction : Action
         message = _message;
     }
 
-    public override Object init()
+    public override System.Object init()
     {
         return null;
     }
 
-    public override Object _run()
+    public override System.Object _run()
     {
         Debug.Log(message);
         kill();
         return null;
     }
-    public override Object cleanup()
+    public override System.Object cleanUp()
     {
         return null;
     }

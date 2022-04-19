@@ -10,13 +10,13 @@ public class OpenDialogueAction: Action
         message = _message;
     }
 
-    public override Object init()
+    public override System.Object init()
     {
         battle.dialogue.text = message;
         return null;
     }
 
-    public override Object _run()
+    public override System.Object _run()
     {
         //Debug.Log(message);
         if (battle.dialogue.text == "")
@@ -32,7 +32,7 @@ public class OpenDialogueAction: Action
 
         return null;
     }
-    public override Object cleanup()
+    public override System.Object cleanUp()
     {
         return null;
     }

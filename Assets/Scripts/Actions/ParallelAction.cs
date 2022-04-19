@@ -18,14 +18,14 @@ public class ParallelAction : Action
             actions.Add(a);
     }
 
-    public override Object init()
+    public override System.Object init()
     {
         return null;
     }
 
 
 
-    public override Object _run()
+    public override System.Object _run()
     {
         bool dead = true;
         foreach(Action a in actions){
@@ -38,7 +38,7 @@ public class ParallelAction : Action
 
         return null;
     }
-    public override Object cleanup()
+    public override System.Object cleanUp()
     {
         return null;
     }

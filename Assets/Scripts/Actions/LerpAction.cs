@@ -11,12 +11,12 @@ public class LerpAction : Action
         location = new Vector3(l.x, l.y, l.z);
     }
 
-    public override Object init()
+    public override System.Object init()
     {
         return null;
     }
 
-    public override Object _run()
+    public override System.Object _run()
     {
 
         Debug.Log(location);
@@ -39,7 +39,7 @@ public class LerpAction : Action
     }
 
 
-public override Object cleanup()
+public override System.Object cleanUp()
     {
         return null;
     }

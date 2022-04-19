@@ -14,19 +14,19 @@ public ImpulseAction(GameObject s, GameObject[] t,Battle b) : base(s, t, b)
 
 
 
-public override Object _run()
+public override System.Object _run()
 {
     if (trigger())
     {
         effect();
-        cleanup();
+        cleanUp();
     }
 
     return null;
 }
 
 public abstract bool trigger();
-public abstract Object effect();
+public abstract System.Object effect();
     
 
 

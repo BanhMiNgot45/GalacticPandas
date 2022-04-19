@@ -11,14 +11,24 @@ public class AI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 1; i++)
+        LoadAliens();
+    }
+
+
+    public void LoadAliens()
+    {
+        for (int i = 0; i < 3; i++)
         {
             panda[i] = Instantiate(prefab).GetComponent<Panda>();
             panda[i].battle = battle;
-            panda[i].transform.Translate(new Vector3(i * 10, 0,10), null);
+            panda[i].team = 1;
+            panda[i].transform.Translate(new Vector3(i * 10, 0, 10), null);
         }
     }
 
+    public Panda GetAlien(int i)
+    {
+        return panda[i % 3];}
 
     private bool ready = false;
 
@@ -37,7 +47,7 @@ public class AI : MonoBehaviour
                     if (p != null)
                     {
                         if (!p.IsReady())
-                            p.UseMove(0);
+                            p.UseMove(0,battle.player.GetPanda(0));
                         things.Add(p.GetSelectedAction());
                         
                         p.reset();

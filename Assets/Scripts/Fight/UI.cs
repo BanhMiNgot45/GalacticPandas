@@ -61,8 +61,7 @@ public class UI : MonoBehaviour
         else {
             promptForTarget(false);
         }
-
-
+    
         if (!battle.ActionReady()&&battle.isPlayersTurn())
         {
             gameObject.transform.localScale = new Vector3(1f, 1f, 1);
@@ -105,7 +104,7 @@ public class UI : MonoBehaviour
     public void chooseMoveWithTarget(int i) {
 
         if (section == 1)
-            player.GetActivePanda().UseMove(choice);
+            player.GetActivePanda().UseMove(choice,null);
         else if (section == 2)
             player.GetActivePanda().UseItem(choice);
         ChangePanda();

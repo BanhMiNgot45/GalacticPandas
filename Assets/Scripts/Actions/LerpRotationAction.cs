@@ -10,12 +10,12 @@ public class LerpRotationAction : Action
         location = l;
     }
 
-    public override Object init()
+    public override System.Object init()
     {
         return null;
     }
 
-    public override Object _run()
+    public override System.Object _run()
     {
 
         if (new Vector3(source.transform.rotation.x, source.transform.rotation.y, source.transform.rotation.z)== location) {
@@ -26,7 +26,7 @@ public class LerpRotationAction : Action
 
         return null;
     }
-    public override Object cleanup()
+    public override System.Object cleanUp()
     {
         return null;
     }

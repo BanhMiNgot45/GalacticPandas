@@ -29,11 +29,12 @@ public abstract class Action
     
     private bool hasInit = false;
 
-    public abstract Object init();
-    public abstract Object _run();
-    public abstract Object cleanup();
+    public abstract System.Object init();
+    public abstract System.Object _run();
 
-    public  Object run()
+    public abstract System.Object cleanUp();
+
+    public System.Object run()
     {
 
         if (!hasInit)

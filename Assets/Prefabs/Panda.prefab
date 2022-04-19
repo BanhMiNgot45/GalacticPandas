@@ -272,21 +272,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e091e9a7c002e72b1a818cbd3452006f, type: 3}
   m_PrefabInstance: {fileID: 8363078279923913431}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3521368116372544525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8705166379280199558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e17fb69c4cf92ec45a96ece0c6f36c9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  battle: {fileID: 0}
-  panda_name: NULL
-  stand: {fileID: 1017017268}
 --- !u!114 &3426967392807699823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,3 +301,18 @@ MonoBehaviour:
             m_StringArgument: Hello World
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &3521368116372544525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8705166379280199558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17fb69c4cf92ec45a96ece0c6f36c9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battle: {fileID: 0}
+  panda_name: Test Panda
+  stand: {fileID: 1017017268}

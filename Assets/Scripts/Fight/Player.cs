@@ -13,11 +13,21 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 1; i++ ) { 
-        panda[i] = Instantiate(prefab).GetComponent<Panda>();
-        panda[i].battle = battle;
-            panda[i].transform.Translate(new Vector3(i * 10, 0, 0),null);
-    } }
+        LoadPandas();
+    }
+
+
+    public void LoadPandas()
+    {
+
+        for (int i = 0; i < 3; i++)
+        {
+            panda[i] = Instantiate(prefab).GetComponent<Panda>();
+            panda[i].battle = battle;
+            panda[i].transform.Translate(new Vector3(i * 10, 0, 0), null);
+        }
+
+    }
 
     //
     // Update is called once per frame
@@ -55,12 +65,25 @@ public class Player : MonoBehaviour
 
     public Panda GetActivePanda()
     {
-        return panda[active_panda];
+        return panda[active_panda%3];
     }
 
     internal void IncrementActivePandaIndex(int v)
     { 
         active_panda += v;
         active_panda %= 3;
+    }
+
+    public Panda GetPanda(int i)
+    {
+        return panda[i % 3];
+    }
+
+    public void GetPandaUseMove(int args)
+    {
+        GetActivePanda().UseMove(args,battle.ai.GetAlien(0));
+        IncrementActivePandaIndex(1);
+
+
     }
 }

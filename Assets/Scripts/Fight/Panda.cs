@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Panda : MonoBehaviour
 {
@@ -26,6 +28,11 @@ public class Panda : MonoBehaviour
 
     public GameObject stand;
 
+    public TMP_Text textMeshPro;
+    public ParticleSystem textParticleSystem;
+    private ParticleSystemRenderer rendererSystem;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +41,10 @@ public class Panda : MonoBehaviour
             new Move()
 
         };
+
+        rendererSystem = textParticleSystem.GetComponent<ParticleSystemRenderer>();
+        rendererSystem.mesh = textMeshPro.mesh;
+        Debug.Log(textMeshPro.text);
     }
 
     // Update is called once per frame

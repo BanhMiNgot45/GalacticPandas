@@ -1013,6 +1013,22 @@ PrefabInstance:
       propertyPath: stand
       value: 
       objectReference: {fileID: 1711894212}
+    - target: {fileID: 8194544947090884916, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194544947090884916, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
+      propertyPath: MaxDistance
+      value: 805.0154
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194544947090884916, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
+      propertyPath: BypassListenerEffects
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974975014693666582, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4319130109800253781, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
     - {fileID: 2480493278961254028, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
@@ -1021,4 +1037,5 @@ PrefabInstance:
     - {fileID: 7215624923471886946, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
     - {fileID: 4418414956846188955, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
     - {fileID: 510893617610912501, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
+    - {fileID: 8974975014693666582, guid: dfa06933268fc60499ff5da1455d158f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dfa06933268fc60499ff5da1455d158f, type: 3}

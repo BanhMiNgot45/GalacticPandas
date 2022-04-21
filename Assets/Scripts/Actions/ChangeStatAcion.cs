@@ -23,13 +23,21 @@ public class ChangeStatAction : Action
         return null;
     }
 
+    Action re;
+
     public override System.Object _run()
     {
+
+        if (stat == STAT_TYPE.HP) { 
+            target_p.hp = value;
+            re = target_p.CheckDeath();
+            
+        }
         kill();
         return null;
     }
     public override System.Object cleanUp()
     {
-        return null;
+        return re;
     }
 }

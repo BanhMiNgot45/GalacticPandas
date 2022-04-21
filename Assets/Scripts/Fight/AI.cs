@@ -22,6 +22,7 @@ public class AI : MonoBehaviour
             panda[i] = Instantiate(prefab).GetComponent<Panda>();
             panda[i].battle = battle;
             panda[i].team = 1;
+            panda[i].panda_name = "Test Alien";
             panda[i].transform.Translate(new Vector3(i * 10, 0, 10), null);
         }
     }
@@ -44,7 +45,7 @@ public class AI : MonoBehaviour
 
                 foreach (Panda p in panda)
                 {
-                    if (p != null)
+                    if (p != null && !p.dead)
                     {
                         if (!p.IsReady())
                             p.UseMove(0,battle.player.GetPanda(0));

@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
             bool ready = true;
             foreach (Panda p in panda)
                 if(p!=null)            
-                    ready &= p.IsReady();
+                    ready &= p.IsReady()||p.dead;
             if (ready)
             {
 
@@ -71,6 +71,8 @@ public class Player : MonoBehaviour
     internal void IncrementActivePandaIndex(int v)
     { 
         active_panda += v;
+        if (panda[active_panda%3].dead)
+            active_panda++;
         active_panda %= 3;
     }
 

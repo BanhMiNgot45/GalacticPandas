@@ -14,7 +14,7 @@ public class Panda : MonoBehaviour
     public string panda_name = "Test Panda";
 
     public double maxHP = 10;
-    public double hp = 10;
+    public double hp = 1;
     public double maxPP = 10;
     public double pp = 10;
     public double att = 1;
@@ -102,6 +102,32 @@ public class Panda : MonoBehaviour
 
 
     }
+
+    public SeriesAction CheckDeath() {
+
+        Debug.Log(hp);
+        Debug.Log("Checking");
+
+        if (hp <= 0) {
+            List<Action> things = new List<Action>();
+
+            //Add animation death
+            things.Add(new OpenDialogueAction(null, null, GetName()+" has been knocked down!", battle));
+
+            //Kill
+            kill();
+        
+            return new SeriesAction(null, null, things, battle);
+        }
+
+        return null;
+    
+    
+    }
+
+    public bool dead = false;
+
+    public void kill() { dead = true; }
 
     public void reset() {
         selectedAction = null;

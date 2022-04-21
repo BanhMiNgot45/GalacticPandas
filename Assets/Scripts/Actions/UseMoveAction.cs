@@ -27,6 +27,12 @@ public class UseMoveAction : Action
 
         bool good = true;
 
+        if (target_p.dead) {
+
+            Debug.Log("FAIL");
+            things.Add(new OpenDialogueAction(null, null, "But it failed...", battle));
+            good = false;
+        }
             if (move.accuracy > 0)
             {
                 double hit = Random.Range(0, 100);
@@ -51,7 +57,7 @@ public class UseMoveAction : Action
 
             if (good)
             {
-                //If we are changing the hp stat ofa none-team member, then it's an attack
+                //If we are changing the hp stat of a non-team member, then it's an attack
                 if (move.stat == STAT_TYPE.HP && target_p.team != source_p.team)
                 {
                     if (target_p.def >= move.power + source_p.att)
@@ -68,10 +74,9 @@ public class UseMoveAction : Action
 
                 }
 
-
             }
 
-            re = new ParallelAction(null, null, things, battle);
+            re = new SeriesAction(null, null, things, battle);
 
         kill();
         return null;

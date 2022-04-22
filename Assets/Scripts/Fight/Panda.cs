@@ -27,6 +27,11 @@ public class Panda : MonoBehaviour
     public int team = 0;
 
     public GameObject stand;
+    public HUD hud;
+
+    internal void setPlayer(Player player)
+    {
+    }
 
     public TMP_Text textMeshPro;
     public ParticleSystem textParticleSystem;
@@ -47,11 +52,33 @@ public class Panda : MonoBehaviour
         Debug.Log(textMeshPro.text);
     }
 
+    public void SetHUD(int pos) {
+
+        hud.gameObject.transform.Translate(new Vector3(-((Screen.width/2)),0,0),null);
+
+
+
+    
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (!dead)
+        {
+            gameObject.transform.localScale = new Vector3(1f, 1f, 1);
+
+        }
+        else
+        {
+            gameObject.transform.localScale = new Vector3(0, 0f, 1);
+        }
+
+
+
     }
+
 
     void setAction(Action a)
     {
@@ -113,7 +140,8 @@ public class Panda : MonoBehaviour
 
             //Add animation death
             things.Add(new OpenDialogueAction(null, null, GetName()+" has been knocked down!", battle));
-
+            if (team == 1)
+                things.Add(new KillAction(this, battle));
             //Kill
             kill();
         

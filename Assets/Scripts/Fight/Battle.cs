@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Battle : MonoBehaviour
 {
-
+    private bool doingVictory = false;
     public bool players_turn = true;
     private Action action =null;
     public UI ui;
@@ -54,7 +54,17 @@ public class Battle : MonoBehaviour
     
     }
 
+    internal void Victory()
+    {
+        if (doingVictory)
+            return;
+        List<Action> things = new List<Action>();
 
+        doingVictory = true;
+        things.Add(new OpenDialogueAction(null, null, "Victory!", this));
+        things.Add(new ChangeSceneAction(0, this));
 
+        action = new SeriesAction(null, null, things, this);
 
+    }
 }

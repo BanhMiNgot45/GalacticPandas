@@ -17,7 +17,7 @@ public class AI : MonoBehaviour
 
     public void LoadAliens()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 1; i++)
         {
             panda[i] = Instantiate(prefab).GetComponent<Panda>();
             panda[i].battle = battle;
@@ -36,6 +36,16 @@ public class AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        bool isVictory = true;
+        foreach (Panda p in panda) {
+            if(p!=null)
+                isVictory &= p.dead;
+        }
+        if (isVictory) {
+            battle.Victory();
+            return;
+        }
         if (!battle.isPlayersTurn())
         {
             if (!battle.ActionReady())

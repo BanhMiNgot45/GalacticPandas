@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public int active_panda = 0;
     public GameObject prefab;
     public Battle battle;
+    public UI ui;
 
 
     // Start is called before the first frame update
@@ -25,6 +26,8 @@ public class Player : MonoBehaviour
             panda[i] = Instantiate(prefab).GetComponent<Panda>();
             panda[i].battle = battle;
             panda[i].transform.Translate(new Vector3(i * 10, 0, 0), null);
+            panda[i].setPlayer(this);
+            panda[i].SetHUD(i);
         }
 
     }

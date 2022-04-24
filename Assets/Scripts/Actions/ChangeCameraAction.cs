@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChangeCameraAction : Action
 {
     MainCamera camera;
-    public ChangeCameraAction(GameObject s, GameObject[] t,Battle b):base(s,t,b)
+    public ChangeCameraAction(GameObject s, GameObject t,Battle b):base(s,new GameObject[] { t },b)
     {
         
     }
@@ -19,7 +19,7 @@ public class ChangeCameraAction : Action
     {
 
 
-        source.transform.SetParent(targets[0].transform,false);
+        source.transform.SetParent(targets[0].transform,true);
         kill();
         return null;
     }

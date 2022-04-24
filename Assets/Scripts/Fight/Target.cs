@@ -23,8 +23,9 @@ public class Target : MonoBehaviour
 
     public void setTarget()
     {
-        Debug.Log(target);
-        source.chooseMoveWithTarget(target);
+
+
+        //source.chooseMoveWithTarget(target);
 
     }
 

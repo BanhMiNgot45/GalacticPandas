@@ -13,6 +13,7 @@ public class HUD : MonoBehaviour
     public TextMeshProUGUI health_text;
     public TextMeshProUGUI power_text;
     public Player player;
+    public Panda panda;
 
     public int id;
 
@@ -30,15 +31,39 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+        health_text.text = panda.hp + "/" + panda.maxHP;
+        health.color = new Color(1- (((float)panda.hp / (float)panda.maxHP)), (((float)panda.hp / (float)panda.maxHP)), 0);
+
+        if (panda.isActive&&!player.battle.IsBattleRunning)
+        {
+            image.color = Color.green;
+        }
+        else {
+            image.color = Color.grey;
+        }
+
         if (pressed)
         {
             Debug.Log(player);
             pressed = false;
             if (player != null)
             {
-            
-                Debug.Log(id);
-                player.setTarget(id);
+                if (player.target == -1) {
+
+                    if (id < 3)
+                    {
+
+                        player.SetActivePanda(id);
+                        player.GetActivePanda().reset(); 
+                        player.battle.camera.transform.SetParent(player.GetActivePanda().stand.transform, true);
+
+                    }
+                }
+                if (player.target == -2) {
+                    player.setTarget(id);
+                }
             
             }
         }

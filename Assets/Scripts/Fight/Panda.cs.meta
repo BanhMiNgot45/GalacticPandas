@@ -3,7 +3,17 @@ guid: e17fb69c4cf92ec45a96ece0c6f36c9a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - battle: {instanceID: 0}
+  - model: {instanceID: 0}
+  - Move1: {fileID: 6336692199375908695, guid: c7e17a7741d9cb44e8efcd8ba77298f1, type: 3}
+  - Move2: {instanceID: 0}
+  - Move3: {instanceID: 0}
+  - Move4: {instanceID: 0}
+  - stand: {instanceID: 0}
+  - hud: {instanceID: 0}
+  - textMeshPro: {instanceID: 0}
+  - textParticleSystem: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

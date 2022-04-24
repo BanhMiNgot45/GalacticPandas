@@ -14,7 +14,7 @@ public class Panda : MonoBehaviour
     public string panda_name = "Test Panda";
 
     public double maxHP = 10;
-    public double hp = 1;
+    public double hp = 10;
     public double maxPP = 10;
     public double pp = 10;
     public double att = 1;
@@ -23,16 +23,35 @@ public class Panda : MonoBehaviour
     public double PDef = 1;
     public double speed = 1;
     public static double maxSpd = 100;
+    public GameObject model;
+
+    public GameObject Move1;
+    public GameObject Move2;
+    public GameObject Move3;
+    public GameObject Move4;
+
+
+
+    private Animator animator;
 
     public int team = 0;
 
     public GameObject stand;
     public HUD hud;
 
-
+    public bool isActive = false;
 
 
     public TMP_Text textMeshPro;
+
+    internal void init()
+    {
+        model.transform.LookAt(new Vector3(0,0,0));
+        model.transform.Rotate(new Vector3(0, 90, 0));
+
+
+    }
+
     public ParticleSystem textParticleSystem;
     private ParticleSystemRenderer rendererSystem;
 
@@ -40,15 +59,31 @@ public class Panda : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        animator = model.GetComponent<Animator>();
+
+        Move1 = Instantiate(Move1);
+        Move1.transform.SetParent(this.transform, false);
+        Move2 = Instantiate(Move2);
+        Move2.transform.SetParent(this.transform, false);
+        Move3 = Instantiate(Move3);
+        Move3.transform.SetParent(this.transform, false);
+        Move4 = Instantiate(Move4);
+        Move4.transform.SetParent(this.transform, false);
+
         Moveset = new Move[] {
 
-            new Move()
+            Move1.GetComponent<Move>(),
+            Move2.GetComponent<Move>(),
+            Move3.GetComponent<Move>(),
+            Move4.GetComponent<Move>()
 
-        };
+    };
 
         rendererSystem = textParticleSystem.GetComponent<ParticleSystemRenderer>();
         rendererSystem.mesh = textMeshPro.mesh;
         Debug.Log(textMeshPro.text);
+
     }
 
     public void SetHUD(int pos,Player player) {
@@ -56,24 +91,31 @@ public class Panda : MonoBehaviour
         hud.gameObject.transform.Translate(new Vector3(-((Screen.width/2))+((int)(pos/3))*(Screen.width-125),(Screen.height/2)-(pos%3)*50,0),null);
         hud.player = player;
         hud.setTarget(pos);
-
+        hud.panda = this;
         Debug.Log(hud.player);
 
 
     }
 
+
+    float time = 0;
+
     // Update is called once per frame
     void Update()
     {
-
+        time += 0.01f;
         if (!dead)
         {
+            time = 0;
             gameObject.transform.localScale = new Vector3(1f, 1f, 1);
 
         }
         else
         {
-            gameObject.transform.localScale = new Vector3(0, 0f, 1);
+            time += 0.01f;
+            animator.Play("Base Layer.Die",0,time);
+            //gameObject.transform.localScale = new Vector3(0, 0f, 1);
+            ready = true;
         }
 
 
@@ -112,18 +154,16 @@ public class Panda : MonoBehaviour
     public void UseMove(int i,Panda target)
     {
         List<Action> things = new List<Action>();
-        //things.Add(new ChangeCameraAction(GameObject.Find("Main Camera"), new GameObject[] { stand }, battle));
-        //things.Add(new LerpAction(GameObject.Find("Main Camera"), null, battle, stand.transform.GetChild(0).position));
-        //things.Add(new LerpRotationAction(GameObject.Find("Main Camera"), null, battle, new Vector3(stand.transform.GetChild(0).rotation.x, stand.transform.GetChild(0).rotation.y, stand.transform.GetChild(0).rotation.z)));
-        // things.Add(new OpenDialogueAction(null, null, "Hello World",battle));
-        // things.Add(new SeriesAction(null,null,new Action[]{
-        //     new LerpAction(this.gameObject, null, battle, new Vector3(5, 2, 0)),
-        //     new TimerAction(this.gameObject, null, battle, 100),
-        //     new LerpAction(this.gameObject, null, battle, new Vector3(0, 0, 0)) 
-        // },battle));
+        things.Add(new ChangeCameraAction(battle.camera,this.stand,battle));
 
-        things.Add(Moveset[0].GetMove(this, target,battle));
-        
+
+        List<Action> things2 = new List<Action>();
+
+        things2.Add(new AnimateAction(animator,"Base Layer.Stand",battle,1));
+        things2.Add(Moveset[0].GetMove(this, target,battle));
+        things2.Add(new AnimateAction(animator, "Base Layer.GetDown", battle, 1));
+        things.Add(new SeriesAction(null, null, things2, battle));
+
 
         setAction(new ParallelAction(null,null,things,battle));
         ready = true;

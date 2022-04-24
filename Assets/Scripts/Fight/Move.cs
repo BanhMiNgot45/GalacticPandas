@@ -41,10 +41,16 @@ public class Move : MonoBehaviour
     public EFFECT_TYPE effect;
     public MOVE_TYPE move_type;
 
+    public AudioSource source;
+
+    public AudioClip[] clips;
+
+    public AudioSource getSource() { return source; }
+    public AudioClip getClip(int i) { return clips[i]; }
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -57,12 +63,13 @@ public class Move : MonoBehaviour
 
     public Action GetMove(Panda source_p,Panda target_p,Battle battle)
     {
+
         GameObject source = source_p.gameObject;
         GameObject target = target_p?.gameObject;
 
 
         List<Action> things = new List<Action>();
-        things.Add(new OpenDialogueAction(null, null, source_p.GetName() + " used " + name + ".", battle));
+       
         things.Add(new UseMoveAction(source_p, target_p,this, battle));
 
 

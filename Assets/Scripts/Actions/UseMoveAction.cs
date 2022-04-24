@@ -23,14 +23,21 @@ public class UseMoveAction : Action
 
     public override System.Object _run()
     {
-        List<Action> things = new List<Action>();
+        List<Action> things_charge = new List<Action>();
+        List<Action> things_after = new List<Action>();
 
         bool good = true;
+
+        things_charge.Add(new PlaySoundAction(move.getSource(),move.getClip(0), battle));
+        things_charge.Add(new OpenDialogueAction(null, null, source_p.GetName() + " used " + move.name + " on " + target_p.panda_name + ".", battle));
+
+        //things.Add(new PlaySoundAction(move.getSource(), battle));
+
 
         if (target_p==null||target_p.dead) {
 
             Debug.Log("FAIL");
-            things.Add(new OpenDialogueAction(null, null, "But it failed...", battle));
+            things_after.Add(new OpenDialogueAction(null, null, "But it failed...", battle));
             good = false;
         }
             if (move.accuracy > 0)
@@ -38,8 +45,7 @@ public class UseMoveAction : Action
                 double hit = Random.Range(0, 100);
                 if (hit > move.accuracy)
                 {
-                    Debug.Log("MISS");
-                    things.Add(new OpenDialogueAction(null, null, source_p.GetName() + " missed!",battle));
+                    things_after.Add(new OpenDialogueAction(null, null, source_p.GetName() + " missed!",battle));
                 good &= false;
                 }
         }
@@ -49,34 +55,40 @@ public class UseMoveAction : Action
                 double dodge = Random.Range(0, 100);
                 if (dodge <= target_p.speed-1)
                 {
-                    Debug.Log("DODGE");
-                    things.Add(new OpenDialogueAction(null, null, target_p.GetName() + " dodged!", battle));
+                    things_after.Add(new OpenDialogueAction(null, null, target_p.GetName() + " dodged!", battle));
                 good &= false;
                 }
             }
 
             if (good)
             {
-                //If we are changing the hp stat of a non-team member, then it's an attack
-                if (move.stat == STAT_TYPE.HP && target_p.team != source_p.team)
+
+            things_after.Add(new PlaySoundAction(move.getSource(), move.getClip(1), battle));
+            things_after.Add(new TimerAction(null,null,battle,100));
+            //If we are changing the hp stat of a non-team member, then it's an attack
+            if (move.stat == STAT_TYPE.HP && target_p.team != source_p.team)
                 {
+                    things_after.Add(new ChangeCameraAction(battle.camera, target_p.stand, battle));
                     if (target_p.def >= move.power + source_p.att)
                     {
-                        things.Add(new ChangeStatAction(source_p, target_p, move.stat, target_p.hp - 1, battle));
-                        Debug.Log("Hit " +target_p.GetName() + " for 1 damage.");
+                        things_after.Add(new ChangeStatAction(source_p, target_p, move.stat, target_p.hp - 1, battle));
                     }
                     else
                     {
-                        things.Add(new ChangeStatAction(source_p, target_p, move.stat,
+                        things_after.Add(new ChangeStatAction(source_p, target_p, move.stat,
                             target_p.hp - (move.power + source_p.att - target_p.def), battle));
-                        Debug.Log("Hit "+ target_p.GetName() + " for "+ (move.power + source_p.att - target_p.def) + " damage.");
-                }
+                    }
 
                 }
 
             }
 
-            re = new SeriesAction(null, null, things, battle);
+
+
+        List<Action> things = new List<Action>();
+        things.Add(new ParallelAction(null, null, things_charge, battle));
+        things.Add(new ParallelAction(null, null, things_after, battle));
+        re = new SeriesAction(null, null, things, battle);
 
         kill();
         return null;

@@ -103,6 +103,8 @@ public class UI : MonoBehaviour
 
     public void chooseMoveWithTarget(int i) {
 
+
+        Debug.Log("Hello");
         if (section == 1)
             player.GetActivePanda().UseMove(choice,null);
         else if (section == 2)

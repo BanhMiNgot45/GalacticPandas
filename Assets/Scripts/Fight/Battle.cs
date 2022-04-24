@@ -13,6 +13,10 @@ public class Battle : MonoBehaviour
     public Player player;
     public AI ai;
 
+    public GameObject camera;
+
+    public bool IsBattleRunning = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,17 +27,13 @@ public class Battle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (action !=null) {
 
 
+        IsBattleRunning = (action!=null);
+        if (IsBattleRunning) {
             action.run();
-
             if (action.IsDead())
                 action = null;
-
-        
-
-
         }
         
     }
@@ -41,17 +41,11 @@ public class Battle : MonoBehaviour
     public bool isPlayersTurn() { return players_turn; }
 
     public void changeTurns() {
-
-        Debug.Log("Changing Turns");
         players_turn = !players_turn;
-
-    
     }
 
     public void setAction(Action a) {
-
         action = a;
-    
     }
 
     internal void Victory()

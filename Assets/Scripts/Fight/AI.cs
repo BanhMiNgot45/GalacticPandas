@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class AI : MonoBehaviour
 {
-    public Panda[] panda = new Panda[3];
+    public Panda[] aliens = new Panda[3];
     public GameObject prefab;
     public Battle battle;
+    public GameObject canvas;
 
     // Start is called before the first frame update
     void Start()
@@ -17,20 +18,25 @@ public class AI : MonoBehaviour
 
     public void LoadAliens()
     {
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 3; i++)
         {
-            panda[i] = Instantiate(prefab).GetComponent<Panda>();
-            panda[i].battle = battle;
-            panda[i].team = 1;
-            panda[i].panda_name = "Test Alien " + i;
-            panda[i].transform.Translate(new Vector3(i * 10, 0, 10), null);
-            panda[i].SetHUD(i+3,battle.player);
+            aliens[i] = Instantiate(prefab).GetComponent<Panda>();
+            aliens[i].battle = battle;
+            aliens[i].team = 1;
+            aliens[i].panda_name = "Test Alien " + i;
+            float x = Mathf.Cos(Mathf.PI * (i + 5) / 4);
+            float y = Mathf.Sin(Mathf.PI * (i + 5) / 4);
+
+            aliens[i].transform.Translate(new Vector3(x * 10, 0, y * 10), null);
+            aliens[i].SetHUD(i+3,battle.player);
+            aliens[i].init();
+            aliens[i].hud.transform.SetParent(canvas.transform, false);
         }
     }
 
     public Panda GetAlien(int i)
     {
-        return panda[i % 3];}
+        return aliens[i % 3];}
 
     private bool ready = false;
 
@@ -39,7 +45,7 @@ public class AI : MonoBehaviour
     {
 
         bool isVictory = true;
-        foreach (Panda p in panda) {
+        foreach (Panda p in aliens) {
             if(p!=null)
                 isVictory &= p.dead;
         }
@@ -51,22 +57,18 @@ public class AI : MonoBehaviour
         {
             if (!battle.ActionReady())
             {
-                Debug.Log("AI is ready...");
                 List<Action> things = new List<Action>();
-
-                foreach (Panda p in panda)
+                foreach (Panda p in aliens)
                 {
                     if (p != null && !p.dead)
                     {
                         if (!p.IsReady())
                             p.UseMove(0,battle.player.GetPanda(0));
                         things.Add(p.GetSelectedAction());
-                        
                         p.reset();
                     }
                 }
-
-                things.Add(new ChangeCameraAction(GameObject.Find("Main Camera"), new GameObject[] { battle.stand }, battle));
+                //things.Add(new ChangeCameraAction(GameObject.Find("Main Camera"), battle.stand, battle));
                 things.Add(new EndTurnAction(null, null, battle));
                 SeriesAction a = new SeriesAction(null, null, things, battle);
                 battle.setAction(a);
@@ -74,9 +76,5 @@ public class AI : MonoBehaviour
             }
             
         }
-
-
-
-
     }
 }

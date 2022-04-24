@@ -22,8 +22,9 @@ public class AI : MonoBehaviour
             panda[i] = Instantiate(prefab).GetComponent<Panda>();
             panda[i].battle = battle;
             panda[i].team = 1;
-            panda[i].panda_name = "Test Alien";
+            panda[i].panda_name = "Test Alien " + i;
             panda[i].transform.Translate(new Vector3(i * 10, 0, 10), null);
+            panda[i].SetHUD(i+3,battle.player);
         }
     }
 

@@ -29,9 +29,8 @@ public class Panda : MonoBehaviour
     public GameObject stand;
     public HUD hud;
 
-    internal void setPlayer(Player player)
-    {
-    }
+
+
 
     public TMP_Text textMeshPro;
     public ParticleSystem textParticleSystem;
@@ -52,13 +51,15 @@ public class Panda : MonoBehaviour
         Debug.Log(textMeshPro.text);
     }
 
-    public void SetHUD(int pos) {
+    public void SetHUD(int pos,Player player) {
+        Debug.Log(hud.player);
+        hud.gameObject.transform.Translate(new Vector3(-((Screen.width/2))+((int)(pos/3))*(Screen.width-125),(Screen.height/2)-(pos%3)*50,0),null);
+        hud.player = player;
+        hud.setTarget(pos);
 
-        hud.gameObject.transform.Translate(new Vector3(-((Screen.width/2)),0,0),null);
+        Debug.Log(hud.player);
 
 
-
-    
     }
 
     // Update is called once per frame

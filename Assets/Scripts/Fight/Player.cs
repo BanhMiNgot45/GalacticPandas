@@ -25,9 +25,10 @@ public class Player : MonoBehaviour
         {
             panda[i] = Instantiate(prefab).GetComponent<Panda>();
             panda[i].battle = battle;
+            panda[i].panda_name = "Test Panda " + i;
             panda[i].transform.Translate(new Vector3(i * 10, 0, 0), null);
-            panda[i].setPlayer(this);
-            panda[i].SetHUD(i);
+            panda[i].SetHUD(i,this);
+            
         }
 
     }
@@ -84,9 +85,19 @@ public class Player : MonoBehaviour
         return panda[i % 3];
     }
 
+    public int target = -1;
+
+    public void setTarget(int i) {
+
+        target = i;
+    }
+
     public void GetPandaUseMove(int args)
     {
-        GetActivePanda().UseMove(args,battle.ai.GetAlien(0));
+        if (target == -1)
+            return;
+        Debug.Log(target);
+        GetActivePanda().UseMove(args,battle.ai.GetAlien(target));
         IncrementActivePandaIndex(1);
 
 

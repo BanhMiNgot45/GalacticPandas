@@ -27,7 +27,7 @@ public class UseMoveAction : Action
 
         bool good = true;
 
-        if (target_p.dead) {
+        if (target_p==null||target_p.dead) {
 
             Debug.Log("FAIL");
             things.Add(new OpenDialogueAction(null, null, "But it failed...", battle));

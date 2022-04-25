@@ -6,6 +6,7 @@ public class HUDMoveButton : MonoBehaviour
 {
     public Player player;
     public int pos =0;
+    public AudioSource select;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,7 @@ public class HUDMoveButton : MonoBehaviour
     public void UseMove()
     {
         player.GetPandaUseMove(pos);
+        select.Play();
 
     }
 }

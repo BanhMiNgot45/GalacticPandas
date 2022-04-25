@@ -15,6 +15,8 @@ public class HUD : MonoBehaviour
     public Player player;
     public Panda panda;
 
+    public AudioSource select;
+
     public int id;
 
 
@@ -85,5 +87,6 @@ public class HUD : MonoBehaviour
     public void setTarget()
     {
         pressed = true;
+        select.Play();
     }
 }

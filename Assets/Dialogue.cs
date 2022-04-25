@@ -11,7 +11,10 @@ public class Dialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        RectTransform rect = gameObject.GetComponent<RectTransform>();
+        rect.offsetMin = new Vector2(10, 10);//Left Bottom
+        rect.offsetMax = new Vector2(-10, -Screen.height * (3f / 4f));//Right Top
+
     }
 
     // Update is called once per frame

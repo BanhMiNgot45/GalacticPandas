@@ -38,19 +38,14 @@ public class Panda : MonoBehaviour
 
     public GameObject stand;
     public HUD hud;
+    public HUDMoves hudMoves;
 
     public bool isActive = false;
 
 
     public TMP_Text textMeshPro;
 
-    internal void init()
-    {
-        model.transform.LookAt(new Vector3(0,0,0));
-        model.transform.Rotate(new Vector3(0, 90, 0));
-
-
-    }
+  
 
     public ParticleSystem textParticleSystem;
     private ParticleSystemRenderer rendererSystem;
@@ -59,6 +54,17 @@ public class Panda : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+   
+
+    }
+
+    public void init() {
+
+        model.transform.LookAt(new Vector3(0, 0, 0));
+        model.transform.Rotate(new Vector3(0, 90, 0));
+        hudMoves.player = battle?.player;
+        hudMoves.init();
 
         animator = model.GetComponent<Animator>();
 
@@ -83,7 +89,6 @@ public class Panda : MonoBehaviour
         rendererSystem = textParticleSystem.GetComponent<ParticleSystemRenderer>();
         rendererSystem.mesh = textMeshPro.mesh;
         Debug.Log(textMeshPro.text);
-
     }
 
     public void SetHUD(int pos,Player player) {

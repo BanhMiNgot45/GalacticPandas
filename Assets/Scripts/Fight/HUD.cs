@@ -44,6 +44,9 @@ public class HUD : MonoBehaviour
             image.color = Color.grey;
         }
 
+        if(panda.IsReady())
+            image.color = Color.yellow;
+
         if (pressed)
         {
             Debug.Log(player);

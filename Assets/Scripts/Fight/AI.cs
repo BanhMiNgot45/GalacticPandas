@@ -30,7 +30,7 @@ public class AI : MonoBehaviour
             aliens[i].transform.Translate(new Vector3(x * 10, 0, y * 10), null);
             aliens[i].SetHUD(i+3,battle.player);
             aliens[i].init();
-            aliens[i].hud.transform.SetParent(canvas.transform, false);
+            //aliens[i].hud.transform.SetParent(canvas.transform, false);
         }
     }
 

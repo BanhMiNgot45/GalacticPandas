@@ -127,6 +127,9 @@ public class Panda : MonoBehaviour
 
     }
 
+    public Move GetMove(int i) {
+        return Moveset[i];
+    }
 
     void setAction(Action a)
     {

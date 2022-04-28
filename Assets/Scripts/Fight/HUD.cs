@@ -84,9 +84,9 @@ public class HUD : MonoBehaviour
 
     }
 
-    public void setTarget()
+    public void setTarget(AudioSource s)
     {
         pressed = true;
-        select.Play();
+        s.Play();
     }
 }

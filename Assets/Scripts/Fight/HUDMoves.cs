@@ -21,7 +21,7 @@ public class HUDMoves : MonoBehaviour
     {
         rect = gameObject.GetComponent<RectTransform>();
         rect.offsetMin = new Vector2(10, 10);//Left Bottom
-        rect.offsetMax = new Vector2(-10, -Screen.height * (3f / 4f));//Right Top
+        rect.offsetMax = new Vector2(-10, -Screen.height * (13f / 16f));//Right Top
         for (int i = 0; i < 4; i++)
         {
             buttons[i].pos = i;
@@ -33,7 +33,7 @@ public class HUDMoves : MonoBehaviour
     void Update()
     {
 
-        if (panda.isActive&&!player.battle.IsBattleRunning)
+        if (panda.isActive&&!player.battle.IsBattleRunning )
         {
             transform.localScale = new Vector3(1, 1, 1);
         }

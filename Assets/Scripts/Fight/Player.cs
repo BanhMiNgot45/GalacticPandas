@@ -141,7 +141,7 @@ public class Player : MonoBehaviour
     }
 
 
-    int chosen_move;
+    public int chosen_move;
     public void GetPandaUseMove(int args)
     {
         chosen_move = args;

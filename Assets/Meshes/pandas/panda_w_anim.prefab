@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 3098613480732225907}
   - component: {fileID: 3209595346301801811}
   m_Layer: 0
-  m_Name: Panda
+  m_Name: panda_w_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

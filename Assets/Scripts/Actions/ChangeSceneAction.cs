@@ -18,7 +18,7 @@ public class ChangeSceneAction : Action
 
     public override System.Object _run()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Inventory",UnityEngine.SceneManagement.LoadSceneMode.Single);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(val);
 
         return null;
     }

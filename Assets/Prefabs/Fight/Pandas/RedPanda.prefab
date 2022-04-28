@@ -5245,7 +5245,7 @@ GameObject:
   - component: {fileID: 3426967392807699823}
   - component: {fileID: 3521368116372544525}
   m_Layer: 0
-  m_Name: Panda
+  m_Name: RedPanda
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5313,7 +5313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battle: {fileID: 0}
-  panda_name: Test Panda
+  panda_name: Red Panda
   maxHP: 10
   hp: 1
   maxPP: 10
@@ -5605,6 +5605,7 @@ MonoBehaviour:
   power_text: {fileID: 1299468867866576431}
   player: {fileID: 0}
   panda: {fileID: 0}
+  select: {fileID: 0}
   id: 0
   pressed: 0
 --- !u!1001 &8261295625440562606

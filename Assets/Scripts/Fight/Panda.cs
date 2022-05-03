@@ -97,7 +97,8 @@ public class Panda : MonoBehaviour
         Debug.Log(hud.player);
         hud.player = player;
         hud.setTarget(pos,canvas);
-        
+
+        hudMoves.transform.SetParent(canvas.transform, false);
         hud.panda = this;
         Debug.Log(hud.player);
 

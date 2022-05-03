@@ -26,6 +26,11 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+
+        RectTransform rect = gameObject.GetComponent<RectTransform>();
+        rect.offsetMax = new Vector2(-10, -Screen.height * (3f / 4f)); //Right Top
         if (player != null && player.target == -1&& !player.battle.IsBattleRunning)
             text = "What will "+player.GetActivePanda().panda_name+" do?";
 

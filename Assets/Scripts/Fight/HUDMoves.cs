@@ -37,6 +37,8 @@ public class HUDMoves : MonoBehaviour
     void Update()
     {
 
+        gameObject.transform.position = new Vector3(0, 0, 0);
+
         if (panda.isActive&&!player.battle.IsBattleRunning )
         {
             transform.localScale = new Vector3(1, 1, 1);

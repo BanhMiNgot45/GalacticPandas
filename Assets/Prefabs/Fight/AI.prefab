@@ -43,9 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5702e1dabd648974587c5e92ade5fd94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panda:
+  aliens:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   prefab: {fileID: 8705166379280199558, guid: ffe7309dc4954a347a9cf6567290c4bc, type: 3}
   battle: {fileID: 0}
+  canvas: {fileID: 0}

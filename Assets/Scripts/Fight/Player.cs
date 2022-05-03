@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public GameObject prefab;
     public Battle battle;
     public UI ui;
-    public GameObject canvas;
+    public Canvas canvas;
 
 
     // Start is called before the first frame update
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
             float y = Mathf.Sin(Mathf.PI * (i+1) / 4);
 
             panda[i].transform.Translate(new Vector3(x*10,0, y*10), null);
-            panda[i].SetHUD(i,this);
+            panda[i].SetHUD(i,this,canvas);
             panda[i].init();
 
 
@@ -51,8 +51,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
+        
        
         if (target >= 0) { 
             GetActivePanda().UseMove(chosen_move, battle.ai.GetAlien(target));
@@ -147,5 +146,14 @@ public class Player : MonoBehaviour
         chosen_move = args;
         if (target == -1)
             target = -2;
+    }
+
+    public void Zoom() {
+
+        foreach (Panda p in panda) {
+            p.Zoom();
+        }
+
+
     }
 }

@@ -33,6 +33,7 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        gameObject.transform.position = (new Vector3((id / 3) * (Screen.width*3/4), -(Screen.height *3/20)*(id % 3) + Screen.height, 0));//new Vector3(-((Screen.width/2))+((int)(pos/3))*(Screen.width-125),(Screen.height/2)-(pos%3)*50,0),null);
 
 
         health_text.text = panda.hp + "/" + panda.maxHP;
@@ -77,9 +78,11 @@ public class HUD : MonoBehaviour
 
     }
 
-    public void setTarget(int i)
+    public void setTarget(int i,Canvas canvas)
     {
         id = i;
+        this.gameObject.transform.SetParent(canvas.gameObject.transform,false);
+
 
 
     }

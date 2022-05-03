@@ -20,11 +20,15 @@ public class HUDMoves : MonoBehaviour
     public void init()
     {
         rect = gameObject.GetComponent<RectTransform>();
-        rect.offsetMin = new Vector2(10, 10);//Left Bottom
-        rect.offsetMax = new Vector2(-10, -Screen.height * (13f / 16f));//Right Top
+        //rect.offsetMin = new Vector2(10, 10);//Left Bottom
+        //rect.offsetMax = new Vector2(-10, -Screen.height * (13f / 16f));//Right Top
         for (int i = 0; i < 4; i++)
         {
             buttons[i].pos = i;
+            if(i==1||i==2)
+                buttons[i].gui_pos = i;
+            else
+                buttons[i].gui_pos = Mathf.Abs(i-3);
             buttons[i].player = player;
         }
     }

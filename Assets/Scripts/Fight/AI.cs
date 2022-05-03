@@ -7,7 +7,7 @@ public class AI : MonoBehaviour
     public Panda[] aliens = new Panda[3];
     public GameObject prefab;
     public Battle battle;
-    public GameObject canvas;
+    public Canvas canvas;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class AI : MonoBehaviour
 
     public void LoadAliens()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 1; i++)
         {
             aliens[i] = Instantiate(prefab).GetComponent<Panda>();
             aliens[i].battle = battle;
@@ -27,8 +27,8 @@ public class AI : MonoBehaviour
             float x = Mathf.Cos(Mathf.PI * (i + 5) / 4);
             float y = Mathf.Sin(Mathf.PI * (i + 5) / 4);
 
-            aliens[i].transform.Translate(new Vector3(x * 10, 0, y * 10), null);
-            aliens[i].SetHUD(i+3,battle.player);
+            //aliens[i].transform.Translate(new Vector3(x * 10, 0, y * 10), null);
+            aliens[i].SetHUD(i+3,battle.player,canvas);
             aliens[i].init();
             //aliens[i].hud.transform.SetParent(canvas.transform, false);
         }
@@ -76,5 +76,16 @@ public class AI : MonoBehaviour
             }
             
         }
+    }
+
+    public void Zoom()
+    {
+
+        foreach (Panda p in aliens)
+        {
+            p.Zoom();
+        }
+
+
     }
 }

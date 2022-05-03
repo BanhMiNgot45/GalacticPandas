@@ -17,6 +17,14 @@ public class CameraStand : MonoBehaviour
     void Update()
     {
         transform.LookAt(pivot.transform);
+        float val = Input.GetAxis("Mouse ScrollWheel")*5;
+        transform.Translate(0, 0, val);
+    }
+
+    public void Zoom()
+    {
+        Debug.Log("AHHHHHHHHHH");
+
     }
 }
 

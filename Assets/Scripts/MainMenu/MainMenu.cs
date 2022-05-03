@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -21,8 +22,9 @@ public class MainMenu : MonoBehaviour
         Debug.Log(i);
         switch (i) {
             case 0:
-
-
+                Scene scene = SceneManager.GetActiveScene();
+                Debug.Log(scene.name);
+                SceneManager.LoadScene("Fight_Test", LoadSceneMode.Single);
 
                 break;
             case 1:

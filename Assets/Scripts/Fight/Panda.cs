@@ -91,11 +91,11 @@ public class Panda : MonoBehaviour
         Debug.Log(textMeshPro.text);
     }
 
-    public void SetHUD(int pos,Player player) {
+    public void SetHUD(int pos,Player player,Canvas canvas) {
         Debug.Log(hud.player);
-        hud.gameObject.transform.Translate(new Vector3(-((Screen.width/2))+((int)(pos/3))*(Screen.width-125),(Screen.height/2)-(pos%3)*50,0),null);
         hud.player = player;
-        hud.setTarget(pos);
+        hud.setTarget(pos,canvas);
+        
         hud.panda = this;
         Debug.Log(hud.player);
 
@@ -108,6 +108,8 @@ public class Panda : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+       
         time += 0.01f;
         if (!dead)
         {
@@ -220,5 +222,12 @@ public class Panda : MonoBehaviour
     public string GetName()
     {
         return panda_name;
+    }
+
+    public void Zoom() {
+
+
+        Debug.Log(Input.GetAxis("Mouse ScrollWheel"));
+
     }
 }

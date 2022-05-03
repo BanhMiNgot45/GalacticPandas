@@ -17,9 +17,9 @@ public class Dialogue : MonoBehaviour
         {
         
 
-        rect.offsetMin = new Vector2(10, 10); //Left Bottom
+        //rect.offsetMin = new Vector2(10, 10); //Left Bottom
 
-        rect.offsetMax = new Vector2(-10, -Screen.height * (3f / 4f)); //Right Top
+        //rect.offsetMax = new Vector2(-10, -Screen.height * (3f / 4f)); //Right Top
     }
 }
 

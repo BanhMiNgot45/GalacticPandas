@@ -30,6 +30,8 @@ public class Panda : MonoBehaviour
     public GameObject Move3;
     public GameObject Move4;
 
+    public Image icon;
+
 
 
     private Animator animator;

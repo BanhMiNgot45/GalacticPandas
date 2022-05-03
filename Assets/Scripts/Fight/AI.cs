@@ -18,7 +18,7 @@ public class AI : MonoBehaviour
 
     public void LoadAliens()
     {
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 3; i++)
         {
             aliens[i] = Instantiate(prefab).GetComponent<Panda>();
             aliens[i].battle = battle;
@@ -27,7 +27,7 @@ public class AI : MonoBehaviour
             float x = Mathf.Cos(Mathf.PI * (i + 5) / 4);
             float y = Mathf.Sin(Mathf.PI * (i + 5) / 4);
 
-            //aliens[i].transform.Translate(new Vector3(x * 10, 0, y * 10), null);
+            aliens[i].transform.Translate(new Vector3(x * 10, 0, y * 10), null);
             aliens[i].SetHUD(i+3,battle.player,canvas);
             aliens[i].init();
             //aliens[i].hud.transform.SetParent(canvas.transform, false);

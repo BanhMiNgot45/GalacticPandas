@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +14,7 @@ public class Player : MonoBehaviour
     public Battle battle;
     public UI ui;
     public Canvas canvas;
+    public Image icon;
 
 
     // Start is called before the first frame update
@@ -35,6 +39,7 @@ public class Player : MonoBehaviour
             panda[i].transform.Translate(new Vector3(x*10,0, y*10), null);
             panda[i].SetHUD(i,this,canvas);
             panda[i].init();
+            panda[i].icon = icon;
 
 
             //panda[i].hud.transform.SetParent(canvas.transform, false);

@@ -24,7 +24,11 @@ public class HUDMoveButton : MonoBehaviour
         image = GetComponent<Image>();
         disable = false;
         image.color = Color.white;
-        var text = player.GetActivePanda().GetMove(pos).name;
+        Debug.Log(player);
+        var text = player
+            .GetActivePanda()
+            .GetMove(pos)
+            .name;
         if (text == "Null") { 
             text = "";
             disable = true;

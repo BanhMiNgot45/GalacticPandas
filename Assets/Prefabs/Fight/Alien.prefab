@@ -468,8 +468,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5768872505888682783}
-  - component: {fileID: 5255527428154411917}
-  - component: {fileID: 535120438940837500}
+  - component: {fileID: 4393107010024691265}
+  - component: {fileID: 7015765258231569835}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -491,7 +491,7 @@ Transform:
   m_Father: {fileID: 8324101403687204156}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!198 &5255527428154411917
+--- !u!198 &4393107010024691265
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -681,7 +681,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.764151, g: 0.27496436, b: 0, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1118,7 +1118,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 0
+    type: 4
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -5197,7 +5197,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &535120438940837500
+--- !u!199 &7015765258231569835
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -5217,7 +5217,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5275,7 +5275,7 @@ GameObject:
   - component: {fileID: 3426967392807699823}
   - component: {fileID: 3521368116372544525}
   m_Layer: 0
-  m_Name: Panda
+  m_Name: Alien
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5358,14 +5358,13 @@ MonoBehaviour:
   Move2: {fileID: 6336692199375908695, guid: c7e17a7741d9cb44e8efcd8ba77298f1, type: 3}
   Move3: {fileID: 6336692199375908695, guid: c7e17a7741d9cb44e8efcd8ba77298f1, type: 3}
   Move4: {fileID: 6336692199375908695, guid: c7e17a7741d9cb44e8efcd8ba77298f1, type: 3}
-  icon: {fileID: 0}
   team: 0
   stand: {fileID: 1017017268}
   hud: {fileID: 9041297934800262177}
   hudMoves: {fileID: 3322453614999867584}
   isActive: 0
   textMeshPro: {fileID: 7027937087494380161}
-  textParticleSystem: {fileID: 0}
+  textParticleSystem: {fileID: 4393107010024691265}
   dead: 0
 --- !u!1001 &5286119157265768295
 PrefabInstance:

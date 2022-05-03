@@ -27,10 +27,13 @@ public class Dialogue : MonoBehaviour
     void Update()
     {
 
-
-
-        RectTransform rect = gameObject.GetComponent<RectTransform>();
-        rect.offsetMax = new Vector2(-10, -Screen.height * (3f / 4f)); //Right Top
+        
+            RectTransform rect = gameObject.GetComponent<RectTransform>();
+      
+        if (text != "null")
+            rect.offsetMax = new Vector2(0, -Screen.height * (3f / 4f)); //Right Top
+        else
+            rect.offsetMax = new Vector2(0,0); //Right Top
         if (player != null && player.target == -1&& !player.battle.IsBattleRunning)
             text = "What will "+player.GetActivePanda().panda_name+" do?";
 

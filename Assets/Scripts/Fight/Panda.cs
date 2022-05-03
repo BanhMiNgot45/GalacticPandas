@@ -49,7 +49,7 @@ public class Panda : MonoBehaviour
 
   
 
-    public ParticleSystem textParticleSystem;
+    public ParticleSystem ps;
     private ParticleSystemRenderer rendererSystem;
 
 
@@ -88,19 +88,17 @@ public class Panda : MonoBehaviour
 
     };
 
-        rendererSystem = textParticleSystem.GetComponent<ParticleSystemRenderer>();
-        rendererSystem.mesh = textMeshPro.mesh;
-        Debug.Log(textMeshPro.text);
+        //rendererSystem = textParticleSystem.GetComponent<ParticleSystemRenderer>();
+        //rendererSystem.mesh = textMeshPro.mesh;
+        //Debug.Log(textMeshPro.text);
     }
 
     public void SetHUD(int pos,Player player,Canvas canvas) {
-        Debug.Log(hud.player);
         hud.player = player;
         hud.setTarget(pos,canvas);
 
         hudMoves.transform.SetParent(canvas.transform, false);
         hud.panda = this;
-        Debug.Log(hud.player);
 
 
     }

@@ -24,9 +24,8 @@ public class HUDMoveButton : MonoBehaviour
         image = GetComponent<Image>();
         disable = false;
         image.color = Color.white;
-        Debug.Log(player);
-        var text = player
-            .GetActivePanda()
+        var text = player?
+            .GetActivePanda()?
             .GetMove(pos)
             .name;
         if (text == "Null") { 
@@ -35,8 +34,8 @@ public class HUDMoveButton : MonoBehaviour
             image.color = Color.gray;
         }
         _text.text = text;
-        //RectTransform rect;
-        //rect = gameObject.GetComponent<RectTransform>();
+        RectTransform rect;
+        rect = gameObject.GetComponent<RectTransform>();
         // rect.offsetMin = new Vector2((Screen.width / 2), 0);//Left Bottom
         // rect.offsetMax = new Vector2(0, -(transform.parent.GetComponent<RectTransform>().rect.height / 2));//Right Top
         // rect.offsetMin = new Vector2((Screen.width / 2), (transform.parent.GetComponent<RectTransform>().rect.height / 2));//Left Bottom
@@ -47,8 +46,8 @@ public class HUDMoveButton : MonoBehaviour
         // rect.offsetMin = new Vector2(0, (transform.parent.GetComponent<RectTransform>().rect.height / 2));//Left Bottom
         // rect.offsetMax = new Vector2(-(Screen.width / 2), 0);//Right Top
 
-        //rect.offsetMin = new Vector2(((3-gui_pos)/2)*(transform.parent.GetComponent<RectTransform>().rect.width / 2), (gui_pos % 2) * (transform.parent.GetComponent<RectTransform>().rect.height / 2));//Left Bottom
-        //rect.offsetMax = new Vector2(-(gui_pos / 2) * (transform.parent.GetComponent<RectTransform>().rect.width / 2), -((1+ gui_pos) % 2) * (transform.parent.GetComponent<RectTransform>().rect.height / 2));//Right Top
+        rect.offsetMin = new Vector2(((3-gui_pos)/2)*(transform.parent.GetComponent<RectTransform>().rect.width / 2), (gui_pos % 2) * (transform.parent.GetComponent<RectTransform>().rect.height / 2));//Left Bottom
+        rect.offsetMax = new Vector2(-(gui_pos / 2) * (transform.parent.GetComponent<RectTransform>().rect.width / 2), -((1+ gui_pos) % 2) * (transform.parent.GetComponent<RectTransform>().rect.height / 2));//Right Top
 
     }
 

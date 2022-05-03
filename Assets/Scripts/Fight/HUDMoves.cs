@@ -37,7 +37,8 @@ public class HUDMoves : MonoBehaviour
     void Update()
     {
 
-        gameObject.transform.position = new Vector3(0, 0, 0);
+        rect = gameObject.GetComponent<RectTransform>();
+        rect.offsetMax = new Vector2(0,Screen.height*-.8f);//Right Top
 
         if (panda.isActive&&!player.battle.IsBattleRunning )
         {

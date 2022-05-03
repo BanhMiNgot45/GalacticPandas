@@ -27,7 +27,7 @@ public class AI : MonoBehaviour
             float x = Mathf.Cos(Mathf.PI * (i + 5) / 4);
             float y = Mathf.Sin(Mathf.PI * (i + 5) / 4);
 
-            aliens[i].transform.Translate(new Vector3(x * 10, 0, y * 10), null);
+            aliens[i].transform.Translate(new Vector3(x * 15, 0, y * 15), null);
             aliens[i].SetHUD(i+3,battle.player,canvas);
             aliens[i].init();
             //aliens[i].hud.transform.SetParent(canvas.transform, false);
@@ -67,6 +67,7 @@ public class AI : MonoBehaviour
                         things.Add(p.GetSelectedAction());
                         p.reset();
                     }
+                    
                 }
                 //things.Add(new ChangeCameraAction(GameObject.Find("Main Camera"), battle.stand, battle));
                 things.Add(new EndTurnAction(null, null, battle));

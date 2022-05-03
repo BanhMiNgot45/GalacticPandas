@@ -61,8 +61,8 @@ public class UseMoveAction : Action
             }
 
             if (good)
-            {
-
+            { 
+                things_after.Add(new PlayParticleSystemAction(null,null,target_p.ps, battle));
             things_after.Add(new PlaySoundAction(move.getSource(), move.getClip(1), battle));
             things_after.Add(new TimerAction(null,null,battle,100));
             //If we are changing the hp stat of a non-team member, then it's an attack

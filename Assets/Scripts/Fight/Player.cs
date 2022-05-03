@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
             float x = Mathf.Cos(Mathf.PI * (i+1) / 4);
             float y = Mathf.Sin(Mathf.PI * (i+1) / 4);
 
-            panda[i].transform.Translate(new Vector3(x*10,0, y*10), null);
+            panda[i].transform.Translate(new Vector3(x*15,0, y*15), null);
             panda[i].SetHUD(i,this,canvas);
             panda[i].init();
             panda[i].icon = icon;
@@ -56,13 +56,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+        if (target >= 0)
+        {
+            if (GetActivePanda())
+            {
+                GetActivePanda().UseMove(chosen_move, battle.ai.GetAlien(target));
+                IncrementActivePandaIndexUntilReady();
+                battle.camera.transform.SetParent(GetActivePanda().stand.transform, true);
+                target = -1;
+            }
         
-       
-        if (target >= 0) { 
-            GetActivePanda().UseMove(chosen_move, battle.ai.GetAlien(target));
-            IncrementActivePandaIndexUntilReady();
-            battle.camera.transform.SetParent(GetActivePanda().stand.transform,true);
-            target = -1;
         }
 
 
@@ -75,6 +80,7 @@ public class Player : MonoBehaviour
             foreach (Panda p in panda)
                 if(p!=null)            
                     ready &= p.IsReady();
+            
             if (ready)
             {
 
@@ -114,14 +120,17 @@ public class Player : MonoBehaviour
 
     internal void IncrementActivePandaIndex(int v)
     {
-
-        GetActivePanda().isActive = false;
+        if(GetActivePanda())
+            GetActivePanda().isActive = false;
         active_panda += v;
+        
+        if(panda[active_panda%3])
         if (panda[active_panda%3].dead)
             active_panda++;
         active_panda %= 3;
 
-        GetActivePanda().isActive = true;
+        if (GetActivePanda())
+            GetActivePanda().isActive = true;
     }
 
     internal void IncrementActivePandaIndexUntilReady()

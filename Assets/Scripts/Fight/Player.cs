@@ -62,7 +62,13 @@ public class Player : MonoBehaviour
         {
             if (GetActivePanda())
             {
-                GetActivePanda().UseMove(chosen_move, battle.ai.GetAlien(target));
+                Panda t;
+                if (target / 3 > 0) 
+                    t = battle.ai.GetAlien(target);
+                else
+                    t = GetPanda(target);
+
+                GetActivePanda().UseMove(chosen_move, t);
                 IncrementActivePandaIndexUntilReady();
                 battle.camera.transform.SetParent(GetActivePanda().stand.transform, true);
                 target = -1;

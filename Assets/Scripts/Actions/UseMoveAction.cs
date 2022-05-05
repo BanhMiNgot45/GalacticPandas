@@ -29,12 +29,15 @@ public class UseMoveAction : Action
         bool good = true;
 
         things_charge.Add(new PlaySoundAction(move.getSource(),move.getClip(0), battle));
-        things_charge.Add(new OpenDialogueAction(null, null, source_p.GetName() + " used " + move.name + " on " + target_p.panda_name + ".", battle));
+        if(move.ps_charge!=null)
+        things_charge.Add(new PlayParticleSystemAction(null, source_p, move.ps_charge, battle));
+        things_charge.Add(new OpenDialogueAction(null, null,
+            source_p.GetName() + " used " + move.name + " on " + target_p.panda_name + ".", battle));
+        // if (move.ps_charge != null)
+        //     things_after.Add(new StopParticleSystemAction(null, null, move.ps_charge, battle));
 
-        //things.Add(new PlaySoundAction(move.getSource(), battle));
 
-
-        if (target_p==null||target_p.dead) {
+         if (target_p==null||target_p.dead) {
 
             Debug.Log("FAIL");
             things_after.Add(new OpenDialogueAction(null, null, "But it failed...", battle));
@@ -61,8 +64,9 @@ public class UseMoveAction : Action
             }
 
             if (good)
-            { 
-                things_after.Add(new PlayParticleSystemAction(null,null,target_p.ps, battle));
+        {
+            if (move.ps_hit != null)
+                things_after.Add(new PlayParticleSystemAction(null, target_p, move.ps_hit, battle));
             things_after.Add(new PlaySoundAction(move.getSource(), move.getClip(1), battle));
             things_after.Add(new TimerAction(null,null,battle,100));
             //If we are changing the hp stat of a non-team member, then it's an attack

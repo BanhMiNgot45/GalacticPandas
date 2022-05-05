@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public AudioSource button_click;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class MainMenu : MonoBehaviour
 
     public void Option(int i) {
         Debug.Log(i);
+        button_click.Play();
         switch (i) {
             case 0:
                 Scene scene = SceneManager.GetActiveScene();

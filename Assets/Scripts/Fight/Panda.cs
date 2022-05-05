@@ -88,9 +88,7 @@ public class Panda : MonoBehaviour
 
     };
 
-        //rendererSystem = textParticleSystem.GetComponent<ParticleSystemRenderer>();
-        //rendererSystem.mesh = textMeshPro.mesh;
-        //Debug.Log(textMeshPro.text);
+
     }
 
     public void SetHUD(int pos,Player player,Canvas canvas) {

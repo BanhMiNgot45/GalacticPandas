@@ -6,8 +6,10 @@ public class PlayParticleSystemAction : Action
 {
     private string message;
     private ParticleSystem pp;
-    public PlayParticleSystemAction(GameObject s, GameObject[] t,ParticleSystem pp,Battle b):base(s,t,b)
+    private Panda target;
+    public PlayParticleSystemAction(GameObject s, Panda t,ParticleSystem pp,Battle b):base(null,null,b)
     {
+        target = t;
         this.pp = pp;
     }
 
@@ -18,6 +20,7 @@ public class PlayParticleSystemAction : Action
 
     public override System.Object _run()
     {
+        pp.transform.position = target.transform.position;
         pp.Play();
         kill();
         return null;

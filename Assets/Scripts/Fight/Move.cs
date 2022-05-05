@@ -41,6 +41,9 @@ public class Move : MonoBehaviour
     public EFFECT_TYPE effect;
     public MOVE_TYPE move_type;
 
+    public ParticleSystem ps_charge;
+    public ParticleSystem ps_hit;
+
     public AudioSource source;
 
     public AudioClip[] clips;

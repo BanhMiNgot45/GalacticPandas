@@ -5402,8 +5402,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battle: {fileID: 0}
   panda_name: Test Panda
-  maxHP: 10
-  hp: 10
+  maxHP: 5
+  hp: 5
   maxPP: 10
   pp: 10
   att: 1
@@ -5413,8 +5413,8 @@ MonoBehaviour:
   speed: 1
   model: {fileID: 5975617816184235623}
   Move1: {fileID: 6336692199375908695, guid: c5091d8372a4d044daf54629667a1317, type: 3}
-  Move2: {fileID: 6336692199375908695, guid: c7e17a7741d9cb44e8efcd8ba77298f1, type: 3}
-  Move3: {fileID: 6336692199375908695, guid: c7e17a7741d9cb44e8efcd8ba77298f1, type: 3}
+  Move2: {fileID: 6336692199375908695, guid: 37e59335b5e5eb146b10ab4b5f5b57d9, type: 3}
+  Move3: {fileID: 6336692199375908695, guid: e4eacbc093ef4d94782ffd5b323c69f3, type: 3}
   Move4: {fileID: 6336692199375908695, guid: c7e17a7741d9cb44e8efcd8ba77298f1, type: 3}
   icon: {fileID: 0}
   team: 0

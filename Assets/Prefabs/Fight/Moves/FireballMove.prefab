@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Fireball
   accuracy: 100
-  power: 1
+  power: 100
   stat: 0
   effect: 0
   move_type: 1

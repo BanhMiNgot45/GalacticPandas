@@ -171,7 +171,7 @@ public class Panda : MonoBehaviour
         List<Action> things2 = new List<Action>();
 
         things2.Add(new AnimateAction(animator,"Base Layer.Stand",battle,1));
-        things2.Add(Moveset[0].GetMove(this, target,battle));
+        things2.Add(Moveset[i].GetMove(this, target,battle));
         things2.Add(new AnimateAction(animator, "Base Layer.GetDown", battle, 1));
         things.Add(new SeriesAction(null, null, things2, battle));
 

@@ -63,7 +63,7 @@ public class AI : MonoBehaviour
                     if (p != null && !p.dead)
                     {
                         if (!p.IsReady())
-                            p.UseMove(0,battle.player.GetPanda(0));
+                            p.UseMove(0,battle.player.GetPanda(Random.Range(0,3)));
                         things.Add(p.GetSelectedAction());
                         p.reset();
                     }

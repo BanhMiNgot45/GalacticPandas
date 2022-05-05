@@ -69,15 +69,10 @@ public class UseMoveAction : Action
             if (move.stat == STAT_TYPE.HP && target_p.team != source_p.team)
                 {
                     things_after.Add(new ChangeCameraAction(battle.camera, target_p.stand, battle));
-                    if (target_p.def >= move.power + source_p.att)
-                    {
-                        things_after.Add(new ChangeStatAction(source_p, target_p, move.stat, target_p.hp - 1, battle));
-                    }
-                    else
-                    {
-                        things_after.Add(new ChangeStatAction(source_p, target_p, move.stat,
-                            target_p.hp - (move.power + source_p.att - target_p.def), battle));
-                    }
+                    Debug.Log((move.power + source_p.att - target_p.def));
+                        things_after.Add(new ChangeStatAction(source_p, target_p, move.stat, target_p.hp - Mathf.Max( 1, (float)(move.power + source_p.att - target_p.def)), battle));
+                    
+                    
 
                 }
 

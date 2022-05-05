@@ -47,7 +47,7 @@ MonoBehaviour:
   name: Encourage
   accuracy: 100
   power: 1
-  stat: 0
+  stat: 2
   effect: 0
   move_type: 2
   source: {fileID: 1930111975947136694}

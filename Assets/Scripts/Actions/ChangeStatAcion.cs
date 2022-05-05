@@ -30,6 +30,8 @@ public class ChangeStatAction : Action
 
         if (stat == STAT_TYPE.HP) { 
             target_p.hp = value;
+            if (target_p.hp < 0)
+                target_p.hp = 0;
             re = target_p.CheckDeath();
             
         }

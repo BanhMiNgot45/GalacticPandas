@@ -12,6 +12,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Inventory.unity
     guid: d4894bbac1445e440abde7bf3eed649c
   - enabled: 1
-    path: Assets/Scenes/Fight_Test.unity
+    path: Assets/Scenes/Fight_Wood.unity
     guid: 8ca5a3b35a51b484d87774dc2498616c
+  - enabled: 1
+    path: Assets/Scenes/Fight_Mountain.unity
+    guid: 3514e0683df120047b318bda2d699800
+  - enabled: 1
+    path: Assets/Scenes/Fight_Snow.unity
+    guid: f5c8f3c78c62f2641be80704adc372a4
+  - enabled: 1
+    path: Assets/Scenes/Fight_Space.unity
+    guid: b147fc6daf493f84a9e3470637244f3d
+  - enabled: 1
+    path: Assets/Scenes/Fight_Volcano.unity
+    guid: 2d12fd6db8e72e641849f399774a159c
+  - enabled: 1
+    path: Assets/Scenes/Fight_Desert.unity
+    guid: 34b43ac80e9f4c4448200a41026b1212
   m_configObjects: {}

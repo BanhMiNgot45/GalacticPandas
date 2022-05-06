@@ -12,6 +12,10 @@ public class Battle : MonoBehaviour
     public GameObject stand;
     public Player player;
     public AI ai;
+    public int state = 0;
+    //1 is win
+    //2 is loss
+    //0 is nothing
 
     public GameObject camera;
 
@@ -52,13 +56,14 @@ public class Battle : MonoBehaviour
     {
         if (doingVictory)
             return;
-        List<Action> things = new List<Action>();
+        //List<Action> things = new List<Action>();
 
         doingVictory = true;
-        things.Add(new OpenDialogueAction(null, null, "Victory!", this));
-        things.Add(new ChangeSceneAction(0, this));
+        state = 1;
+        //things.Add(new OpenDialogueAction(null, null, "Victory!", this));
+        //things.Add(new ChangeSceneAction(0, this));
 
-        action = new SeriesAction(null, null, things, this);
+        //action = new SeriesAction(null, null, things, this);
 
     }
 }

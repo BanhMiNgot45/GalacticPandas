@@ -29,24 +29,29 @@ public class SeriesAction : Action
     public override System.Object _run()
     {
         Action a = actions[index];
-
-        if (a.IsDead())
+        if (a == null)
         {
-            System.Object re = a.cleanUp();
-            if (re is Action)
-            {
-                actions[index] = (Action)re;
-
-            }
-            else
-            {
-                index++;
-            }
+            index++;
         }
-    
+        else
+        {
+            if (a.IsDead())
+            {
+                System.Object re = a.cleanUp();
+                if (re is Action)
+                {
+                    actions[index] = (Action)re;
 
-    a.run();
+                }
+                else
+                {
+                    index++;
+                }
+            }
 
+
+            a.run();
+        }
         if (index >= actions.Count)
             kill();
 

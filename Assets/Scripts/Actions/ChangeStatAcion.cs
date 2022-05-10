@@ -28,11 +28,50 @@ public class ChangeStatAction : Action
     public override System.Object _run()
     {
 
-        if (stat == STAT_TYPE.HP) { 
+        if (stat == STAT_TYPE.HP)
+        {
             target_p.hp = value;
+            if (target_p.hp < 0)
+                target_p.hp = 0;
+            if(target_p.hp>target_p.maxHP)
+                target_p.hp = target_p.maxHP;
             re = target_p.CheckDeath();
-            
+
         }
+        else if (stat == STAT_TYPE.PP)
+        {
+            target_p.pp = value;
+            if (target_p.pp < 0)
+                target_p.pp = 0;
+            if (target_p.pp > target_p.maxPP)
+                target_p.pp = target_p.maxPP;
+
+        }
+        else
+        {
+
+
+            switch (stat)
+            {
+                case STAT_TYPE.ATT:
+                    target_p.att = value;
+                    break;
+                case STAT_TYPE.DEF:
+                    target_p.def = value;
+                    break;
+                case STAT_TYPE.SPEED:
+                    target_p.speed = value;
+                    break;
+                case STAT_TYPE.MAX_HP:
+                target_p.maxHP = value;
+                target_p.maxHP = (double)Mathf.Min((float)target_p.maxHP, (float)target_p.hp);
+                    break;
+
+
+            }
+        }
+    
+
         kill();
         return null;
     }
@@ -40,4 +79,6 @@ public class ChangeStatAction : Action
     {
         return re;
     }
+
+
 }

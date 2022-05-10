@@ -8,7 +8,7 @@ public class Panda : MonoBehaviour
 {
 
     public Battle battle;
-    private Move[] Moveset;
+    public Move[] Moveset;
     public Action selectedAction;
     private bool ready = false;
     public string panda_name = "Test Panda";
@@ -30,7 +30,7 @@ public class Panda : MonoBehaviour
     public GameObject Move3;
     public GameObject Move4;
 
-    public Image icon;
+    public Sprite icon;
 
 
 
@@ -46,6 +46,8 @@ public class Panda : MonoBehaviour
 
 
     public TMP_Text textMeshPro;
+
+    
 
   
 
@@ -107,8 +109,8 @@ public class Panda : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
 
-       
         time += 0.01f;
         if (!dead)
         {

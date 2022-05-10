@@ -23,7 +23,7 @@ public class AI : MonoBehaviour
             aliens[i] = Instantiate(prefab).GetComponent<Panda>();
             aliens[i].battle = battle;
             aliens[i].team = 1;
-            aliens[i].panda_name = "Test Alien " + i;
+            aliens[i].panda_name = "Alien " + i;
             float x = Mathf.Cos(Mathf.PI * (i + 5) / 4);
             float y = Mathf.Sin(Mathf.PI * (i + 5) / 4);
 
@@ -63,8 +63,19 @@ public class AI : MonoBehaviour
                     if (p != null && !p.dead)
                     {
                         if (!p.IsReady())
-                            p.UseMove(0,battle.player.GetPanda(Random.Range(0,3)));
-                        things.Add(p.GetSelectedAction());
+                        {
+                            int i = Random.Range(0, 3);
+                            Debug.Log(p.GetMove(i).name);
+                            
+                                i = Random.Range(0, 3);
+                                Debug.Log(i);
+                            
+
+                        p.UseMove(i, battle.player.GetPanda(Random.Range(0, 3)));
+                        }
+                    
+
+                    things.Add(p.GetSelectedAction());
                         p.reset();
                     }
                     

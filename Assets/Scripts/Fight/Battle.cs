@@ -66,4 +66,19 @@ public class Battle : MonoBehaviour
         //action = new SeriesAction(null, null, things, this);
 
     }
+
+    internal void Loss()
+    {
+        if (doingVictory)
+            return;
+        //List<Action> things = new List<Action>();
+
+        doingVictory = true;
+        state = 2;
+        //things.Add(new OpenDialogueAction(null, null, "Victory!", this));
+        //things.Add(new ChangeSceneAction(0, this));
+
+        //action = new SeriesAction(null, null, things, this);
+
+    }
 }

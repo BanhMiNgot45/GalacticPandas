@@ -56,3 +56,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb82b98d23577c419d9c4754f980d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panda:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  active_panda: 0
+  prefabs: {fileID: 0}
+  battle: {fileID: 0}
+  ui: {fileID: 0}
+  canvas: {fileID: 0}
+  random_moves:
+  - {fileID: 4090602137282162321, guid: c5091d8372a4d044daf54629667a1317, type: 3}
+  - {fileID: 4090602137282162321, guid: e4eacbc093ef4d94782ffd5b323c69f3, type: 3}
+  - {fileID: 4090602137282162321, guid: 37e59335b5e5eb146b10ab4b5f5b57d9, type: 3}
+  - {fileID: 4090602137282162321, guid: e1ba9d0e1048fee4ebcb6a7d4d18b5da, type: 3}
+  - {fileID: 4090602137282162321, guid: a07efe6ff7c9953478fa46b48e9d062c, type: 3}
+  num: 5
+  target: -1
+  chosen_move: 0

@@ -27,6 +27,7 @@ public class HUD : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        image.sprite = panda.icon;
         
     }
 
@@ -36,6 +37,7 @@ public class HUD : MonoBehaviour
         gameObject.transform.position = (new Vector3((id / 3) * (Screen.width*3/4), -(Screen.height *3/20)*(id % 3) + Screen.height, 0));//new Vector3(-((Screen.width/2))+((int)(pos/3))*(Screen.width-125),(Screen.height/2)-(pos%3)*50,0),null);
 
 
+        power_text.text = panda.pp + "/" + panda.maxPP;
         health_text.text = panda.hp + "/" + panda.maxHP;
         health.color = new Color(1- (((float)panda.hp / (float)panda.maxHP)), (((float)panda.hp / (float)panda.maxHP)), 0);
 

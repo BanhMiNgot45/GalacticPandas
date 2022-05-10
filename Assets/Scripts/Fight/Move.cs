@@ -8,7 +8,9 @@ public enum STAT_TYPE
     ATT,
     DEF,
     SPEED,
-    MAX_HP
+    MAX_HP,
+    PP,
+    MAX_PP
 
 
 };
@@ -40,6 +42,7 @@ public class Move : MonoBehaviour
     public STAT_TYPE stat;
     public EFFECT_TYPE effect;
     public MOVE_TYPE move_type;
+    public int Mana_Cost;
 
     public ParticleSystem ps_charge;
     public ParticleSystem ps_hit;

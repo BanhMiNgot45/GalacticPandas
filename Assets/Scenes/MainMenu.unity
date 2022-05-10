@@ -577,6 +577,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710d13effe9bf4d4593b9fdaa7a3e8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelnames:
+  - Fight_Wood
+  - Fight_Snow
+  - Fight_Desert
+  - Fight_Mountain
+  - Fight_Volcano
+  - Fight_Space
   button_click: {fileID: 756621286}
 --- !u!4 &252977093
 Transform:
@@ -1011,6 +1018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710d13effe9bf4d4593b9fdaa7a3e8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelnames: []
   button_click: {fileID: 756621286}
 --- !u!114 &756621283
 MonoBehaviour:
@@ -1305,6 +1313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710d13effe9bf4d4593b9fdaa7a3e8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelnames: []
   button_click: {fileID: 784202441}
 --- !u!114 &784202438
 MonoBehaviour:

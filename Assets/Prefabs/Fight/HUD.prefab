@@ -1067,7 +1067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16743085e3742344e882d1e8680a69b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 7996265960263335913}
+  image: {fileID: 5405851594638369890}
   health: {fileID: 6475078685135167112}
   power: {fileID: 6607876131986253246}
   health_text: {fileID: 7824426971092842500}

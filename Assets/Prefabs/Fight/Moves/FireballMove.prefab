@@ -48,10 +48,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Fireball
   accuracy: 100
-  power: 100
+  power: 5
   stat: 0
   effect: 0
   move_type: 0
+  Mana_Cost: 5
   ps_charge: {fileID: 2388453957051060493}
   ps_hit: {fileID: 1391582694982647748}
   source: {fileID: 1930111975947136694}

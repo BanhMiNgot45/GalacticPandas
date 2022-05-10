@@ -33,7 +33,18 @@ public class ChangeStatAction : Action
             target_p.hp = value;
             if (target_p.hp < 0)
                 target_p.hp = 0;
+            if(target_p.hp>target_p.maxHP)
+                target_p.hp = target_p.maxHP;
             re = target_p.CheckDeath();
+
+        }
+        else if (stat == STAT_TYPE.PP)
+        {
+            target_p.pp = value;
+            if (target_p.pp < 0)
+                target_p.pp = 0;
+            if (target_p.pp > target_p.maxPP)
+                target_p.pp = target_p.maxPP;
 
         }
         else
@@ -61,7 +72,7 @@ public class ChangeStatAction : Action
         }
     
 
-    kill();
+        kill();
         return null;
     }
     public override System.Object cleanUp()

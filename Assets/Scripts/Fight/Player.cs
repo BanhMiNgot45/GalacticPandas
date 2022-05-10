@@ -10,11 +10,13 @@ public class Player : MonoBehaviour
     public Panda[] panda = new Panda[3];
     public int active_panda = 0;
 
-    public GameObject prefab;
+    public GameObject prefabs;
     public Battle battle;
     public UI ui;
     public Canvas canvas;
-    public Image icon;
+
+    public Move[] random_moves;
+    public int num;
 
 
     // Start is called before the first frame update
@@ -23,15 +25,25 @@ public class Player : MonoBehaviour
         LoadPandas();
     }
 
+    string[] names = { "Grizz", "Yogi", "Panda" };
+
 
     public void LoadPandas()
     {
 
         for (int i = 0; i < 3; i++)
         {
-            panda[i] = Instantiate(prefab).GetComponent<Panda>();
+
+            panda[i] = Instantiate(prefabs).GetComponent<Panda>();
             panda[i].battle = battle;
-            panda[i].panda_name = panda[i].name = "Test Panda " + i;
+            panda[i].panda_name = panda[i].name = names[i];
+            
+            //for(int n=0;n<4;n++)
+            //    panda[i].Moveset[n] = random_moves[Random.Range(0, num-1)]; 
+                
+
+
+        
 
             float x = Mathf.Cos(Mathf.PI * (i+1) / 4);
             float y = Mathf.Sin(Mathf.PI * (i+1) / 4);
@@ -39,7 +51,6 @@ public class Player : MonoBehaviour
             panda[i].transform.Translate(new Vector3(x*15,0, y*15), null);
             panda[i].SetHUD(i,this,canvas);
             panda[i].init();
-            panda[i].icon = icon;
 
 
             //panda[i].hud.transform.SetParent(canvas.transform, false);
@@ -57,7 +68,17 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-
+        bool isLoss = true;
+        foreach (Panda p in panda)
+        {
+            if (p != null)
+                isLoss &= p.dead;
+        }
+        if (isLoss)
+        {
+            battle.Loss();
+            return;
+        }
         if (target >= 0)
         {
             if (GetActivePanda())

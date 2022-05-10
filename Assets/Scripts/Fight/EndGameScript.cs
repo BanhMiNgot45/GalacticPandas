@@ -34,7 +34,7 @@ public class EndGameScript : MonoBehaviour
 
             _text.text = "Victory!";
             if (time > 600)
-                SceneManager.LoadScene(levelnames[Random.Range(0, levelnames.Length - 1)], LoadSceneMode.Single);
+                SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
             }
             else
             {

@@ -43,7 +43,15 @@ public class UseMoveAction : Action
             things_after.Add(new OpenDialogueAction(null, null, "But it failed...", battle));
             good = false;
         }
-            if (move.accuracy > 0)
+
+        if (source_p.pp-move.Mana_Cost<0)
+        {
+
+            Debug.Log("FAIL");
+            things_after.Add(new OpenDialogueAction(null, null, "But they don't have enough energy.", battle));
+            good = false;
+        }
+        if (move.accuracy > 0)
             {
                 double hit = Random.Range(0, 100);
                 if (hit > move.accuracy)
@@ -65,22 +73,46 @@ public class UseMoveAction : Action
 
             if (good)
         {
+
+            source_p.pp -= move.Mana_Cost;
+
             if (move.ps_hit != null)
                 things_after.Add(new PlayParticleSystemAction(null, target_p, move.ps_hit, battle));
             things_after.Add(new PlaySoundAction(move.getSource(), move.getClip(1), battle));
             things_after.Add(new TimerAction(null,null,battle,100));
             //If we are changing the hp stat of a non-team member, then it's an attack
-            if (move.stat == STAT_TYPE.HP && target_p.team != source_p.team)
+            if (move.stat == STAT_TYPE.HP)
+                if (target_p.team != source_p.team)
                 {
                     things_after.Add(new ChangeCameraAction(battle.camera, target_p.stand, battle));
                     Debug.Log((move.power + source_p.att - target_p.def));
-                        things_after.Add(new ChangeStatAction(source_p, target_p, move.stat, target_p.hp - Mathf.Max( 1, (float)(move.power + source_p.att - target_p.def)), battle));
-                    
-                    
+                    things_after.Add(new ChangeStatAction(source_p, target_p, move.stat, target_p.hp - Mathf.Max(1, (float)(move.power + source_p.att - target_p.def)), battle));
+
+
+
+                }
+                else {
+                    things_after.Add(new ChangeStatAction(source_p, target_p, move.stat, target_p.hp + Mathf.Max(1, (float)(move.power + source_p.PAtt)), battle));
 
                 }
 
-            }
+            if (move.stat == STAT_TYPE.PP)
+                if (target_p.team != source_p.team)
+                {
+                    things_after.Add(new ChangeCameraAction(battle.camera, target_p.stand, battle));
+                    Debug.Log((move.power + source_p.att - target_p.def));
+                    things_after.Add(new ChangeStatAction(source_p, target_p, move.stat, target_p.hp - Mathf.Max(1, (float)(move.power + source_p.att - target_p.def)), battle));
+
+
+
+                }
+                else
+                {
+                    things_after.Add(new ChangeStatAction(source_p, target_p, move.stat, target_p.hp + Mathf.Max(1, (float)(move.power + source_p.PAtt)), battle));
+
+                }
+
+        }
 
 
 
